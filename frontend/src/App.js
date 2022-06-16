@@ -6,6 +6,8 @@ import {
 import MainPage from './Components/MainPage/MainPage';
 import MyFooter from './Components/MyFooter/MyFooter';
 import MyNav from './Components/MyNav/MyNav';
+import SignIn from './Components/SignIn/SignIn';
+import SignUp from './Components/SignUp/SignUp';
 
 function App() {
   return (
@@ -14,7 +16,10 @@ function App() {
 
       <Routes>
         <Route path="/" element={<MainPage />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
       </Routes>
+
       <MyFooter />
     </div>
   );

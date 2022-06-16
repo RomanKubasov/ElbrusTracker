@@ -1,17 +1,29 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Img from '../../images/tracker_logo.png';
 import style from './MyNav.module.css';
 
 function MyNav() {
+  const navigate = useNavigate();
+  const navigateHandlerReg = () => {
+    navigate('/signup');
+  };
+
+  const navigateHandlerLog = () => {
+    navigate('/signin');
+  };
+
   return (
     <div className={style.header}>
       <div className={style.header__logo}>
-        <img src={Img} alt="logo" />
+        <Link to="/">
+          <img src={Img} alt="logo" />
+        </Link>
       </div>
 
       <div className={style.registration}>
-        <button className={style.registration__signupBtn} type="submit">Зарегистрироваться</button>
-        <button className={style.registration__signinBtn} type="submit">Войти</button>
+        <button onClick={navigateHandlerReg} className={style.registration__signupBtn} type="submit">Зарегистрироваться</button>
+        <button onClick={navigateHandlerLog} className={style.registration__signinBtn} type="submit">Войти</button>
       </div>
     </div>
   );
