@@ -1,17 +1,29 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('progresses', {
+    await queryInterface.createTable('teachers', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      date: {
-        type: Sequelize.DATE,
-      },
       user_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+        unique: true,
+        references: {
+          model: 'users',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
+      },
+      group_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'groups',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
       },
       createdAt: {
         allowNull: false,
@@ -24,6 +36,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('progresses');
+    await queryInterface.dropTable('teachers');
   },
 };

@@ -1,14 +1,16 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('progress_indicators', {
+    await queryInterface.createTable('groups', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      indicator: {
+      name: {
         type: Sequelize.STRING,
+        unique: true,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
@@ -21,6 +23,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('progress_indicators');
+    await queryInterface.dropTable('groups');
   },
 };

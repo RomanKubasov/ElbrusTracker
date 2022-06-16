@@ -9,12 +9,26 @@ module.exports = {
       },
       feedback_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+        unique: true,
+        references: {
+          model: 'feedbacks',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
       },
       metric_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'feedback-metrics',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
       },
       value: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

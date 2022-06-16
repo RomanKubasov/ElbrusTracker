@@ -9,11 +9,20 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
+
       },
-      slack_id: {
+      login: {
         type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
       },
+
       git_id: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      avatar_url: {
         type: Sequelize.STRING,
       },
       pass: {
@@ -21,6 +30,12 @@ module.exports = {
       },
       role_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'roles',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
       },
       createdAt: {
         allowNull: false,
