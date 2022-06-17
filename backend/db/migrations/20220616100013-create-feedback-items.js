@@ -21,7 +21,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'feedback-metrics',
+          model: 'feedback_metrics',
           key: 'id',
         },
         onDelete: 'CASCADE',
