@@ -10,7 +10,6 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
-
       },
       login: {
         type: Sequelize.STRING,
@@ -20,7 +19,6 @@ module.exports = {
 
       git_id: {
         type: Sequelize.STRING,
-        allowNull: false,
         unique: true,
       },
       avatar_url: {

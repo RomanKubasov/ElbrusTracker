@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 module.exports = {
   async up(queryInterface, Sequelize) {
     const roles = [
@@ -35,7 +36,7 @@ module.exports = {
         name: 'leopards22', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        name: 'bears22', createdAt: new Date(), updatedAt: new Date(),
+        name: 'arctic_foxes22', createdAt: new Date(), updatedAt: new Date(),
       },
       {
         name: 'tigers22', createdAt: new Date(), updatedAt: new Date(),
@@ -69,50 +70,56 @@ module.exports = {
     ];
     const students = [
       {
-        user_id: 1, group_id: 1, createdAt: new Date(), updatedAt: new Date(),
+        user_id: 4, group_id: 1, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        user_id: 1, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+        user_id: 5, group_id: 1, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        user_id: 2, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+        user_id: 6, group_id: 1, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        user_id: 3, group_id: null, createdAt: new Date(), updatedAt: new Date(),
+        user_id: 7, group_id: 1, createdAt: new Date(), updatedAt: new Date(),
       },
+      {
+        user_id: 8, group_id: 1, createdAt: new Date(), updatedAt: new Date(),
+      },
+
     ];
     const users = [
       {
-        name: 'Anton', login: ,git_id: ,avatar_url: null,pass: null,role_id: 1, createdAt: new Date(), updatedAt: new Date(),
-      }, 
+        name: null, login: 'panferovDev', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
+      },
       {
-        name: 'Anton', login: ,git_id: ,avatar_url: null,pass: null,role_id: 1, createdAt: new Date(), updatedAt: new Date(),
-      }, 
+        name: null, login: 'balkoev', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
+      },
       {
-        name: 'Anton', login: ,git_id: ,avatar_url: null,pass: null,role_id: 1, createdAt: new Date(), updatedAt: new Date(),
-      }, 
+        name: null, login: 'd4rsen', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
+      },
       {
-        name: 'Anton', login: ,git_id: ,avatar_url: null,pass: null,role_id: 1, createdAt: new Date(), updatedAt: new Date(),
-      }, 
+        name: null, login: 'RomanKubasov', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
       {
-        name: 'Anton', login: ,git_id: ,avatar_url: null,pass: null,role_id: 1, createdAt: new Date(), updatedAt: new Date(),
-      }, 
+        name: null, login: 'ABessonov', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
       {
-        name: 'Anton', login: ,git_id: ,avatar_url: null,pass: null,role_id: 1, createdAt: new Date(), updatedAt: new Date(),
-      }, 
+        name: null, login: 'omarovfrontend', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
       {
-        name: 'Anton', login: ,git_id: ,avatar_url: null,pass: null,role_id: 1, createdAt: new Date(), updatedAt: new Date(),
-      }, 
+        name: null, login: 'errraaaa', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
       {
-        name: 'Anton', login: ,git_id: ,avatar_url: null,pass: null,role_id: 1, createdAt: new Date(), updatedAt: new Date(),
-      }, 
+        name: null, login: 'AliasFinn', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
     ];
-    await queryInterface.bulkInsert('categories', categories);
     await queryInterface.bulkInsert('roles', roles);
-    await queryInterface.bulkInsert('owners', owners);
-    await queryInterface.bulkInsert('pets', pets);
-    await queryInterface.bulkInsert('likes', likes);
-    await queryInterface.bulkInsert('carts', carts);
+    await queryInterface.bulkInsert('feedback_metrics_types', feedback_metrics_types);
+    await queryInterface.bulkInsert('progress_indicators', progress_indicators);
+    await queryInterface.bulkInsert('groups', groups);
+    await queryInterface.bulkInsert('feedback_metrics', feedback_metrics);
+    await queryInterface.bulkInsert('users', users);
+    await queryInterface.bulkInsert('teachers', teachers);
+    await queryInterface.bulkInsert('students', students);
   },
 
   async down(queryInterface, Sequelize) {
