@@ -1,25 +1,29 @@
 const express = require('express');
 require('dotenv').config();
-const cors = require('cors');
+// const cors = require('cors');
+const morgan = require('morgan');
+const path = require('path');
 
 const app = express();
 const PORT = 3001;
 // const indexRouter = require('./routes/indexRouter');
 const userRouter = require('./routes/userRouter');
 
-app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
-// const corsOptions = {
-//   origin: '*',
-//   credentials: true,
-//   optionSuccessStatus: 200,
-// };
-// app.use(cors(corsOptions));
-
+app.use(express.static(path.join(process.env.PWD, 'public')));
+app.use(morgan('dev'));
+// app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// const { users } = require('./db/models');
 
 // app.use('/', indexRouter);
 app.use('/', userRouter);
+
+// users.findAll().then(console.log);
+
+app.use((req, res) => {
+  res.status(404).send('router doesnt exist');
+});
 
 app.listen(PORT, () => {
   console.log(`Server is started on port: ${PORT}`);
