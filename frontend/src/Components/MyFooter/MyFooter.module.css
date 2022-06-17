@@ -1,0 +1,26 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://images.unsplash.com/photo-1634893661513-d6d1f579fc63?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100% 70%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border-top: 1px solid #e5e5e5;
+}
+
+.footer__copyright {
+  text-align: center;
+  font-size: 20px;
+  padding: 25px 0;
+  color: #999;
+}
+
+.footer__copyright span {
+  color: #66a3ff;
+}
