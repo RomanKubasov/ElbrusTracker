@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const path = require('path');
 
 const teamMatesRouter = require('./routes/teamMatesRouter');
+const feedBackRouter = require('./routes/feedBackRouter');
 
 const app = express();
 const PORT = 3001;
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/teammates', teamMatesRouter);
+app.use('/feedback', feedBackRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is started on port: ${PORT}`);
