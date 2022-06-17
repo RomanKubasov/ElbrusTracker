@@ -1,0 +1,2 @@
+export const GET_TEAMMATES = 'GET_TEAMMATES';
+export const SET_TEAMMATES = 'SET_TEAMMATES';
