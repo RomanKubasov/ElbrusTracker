@@ -6,45 +6,54 @@
   flex-wrap: wrap;
 }
 
-.mainPage__card_progress {
+.mainPage__card_progress,
+.mainPage__card_feedback {
   width: 25%;
   padding: 0 15px;
 }
 
-.mainPage__card_progress_inner {
+.mainPage__card_progress_inner,
+.mainPage__card_feedback_inner {
   position: relative;
-  background-color: #95e1d3;
 }
 
-.mainPage__card_progress_inner:hover .mainPage__card_progress_img {
+.mainPage__card_progress_inner:hover .mainPage__card_progress_img,
+.mainPage__card_feedback_inner:hover .mainPage__card_feedback_img {
   transform: translate3D(-10px, -10px, 0);
   cursor: pointer;
+  box-shadow: 0 0 10px 3px #322a9c;
 }
 
-.mainPage__card_progress_inner:hover .mainPage__card_progress_img {
+.mainPage__card_progress_inner:hover .mainPage__card_progress_img,
+.mainPage__card_feedback_inner:hover .mainPage__card_feedback_img {
   opacity: .9;
 }
 
-.mainPage__card_progress_img {
+.mainPage__card_progress_img,
+.mainPage__card_feedback_img {
   background: linear-gradient(to bottom, #f38181, #fce38a);
   transition: transform .3s linear;
 }
 
-.mainPage__card_progress_img img {
+.mainPage__card_progress_img img,
+.mainPage__card_feedback_img img {
   display: block;
   max-width: 100%;
   height: auto;
   transition: opacity .1s linear;
 }
 
-.mainPage__card_progress_info {
-  margin-top: 20px;
+.mainPage__card_progress_info,
+.mainPage__card_feedback_info {
   text-align: center;
+  line-height: 30px;
+  border-bottom: 1px dotted #666;
 }
 
-.mainPage__card_progress_info p {
+.mainPage__card_progress_info p,
+.mainPage__card_feedback_info p {
   font-size: 16px;
   text-transform: uppercase;
   color: #333;
-  margin-bottom: 3px;
+  margin: 5px;
 }

@@ -1,27 +1,31 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import style from './MainPage.module.css';
-import Img from '../../images/progress_img.jpg';
+import imgProgress from '../../images/progress_img.jpg';
+import imgFeedback from '../../images/feedback.jpg';
 
 function MainPage() {
   return (
     <div className={style.mainPage}>
 
       <div className={style.mainPage__card_progress}>
-        <div className={style.mainPage__card_progress_inner}>
+        <Link to="/progress" className={style.mainPage__card_progress_inner}>
           <div className={style.mainPage__card_progress_img}>
-            <img src={Img} alt="Progress_Image" />
+            <img src={imgProgress} alt="Progress_Image" />
           </div>
-        </div>
+        </Link>
         <div className={style.mainPage__card_progress_info}>
           <p>Мой прогресс</p>
         </div>
       </div>
 
       <div className={style.mainPage__card_feedback}>
-        <div>
-          <img src="" alt="Feedback_Image" />
-        </div>
-        <div>
+        <Link to="/feedback" className={style.mainPage__card_feedback_inner}>
+          <div className={style.mainPage__card_feedback_img}>
+            <img src={imgFeedback} alt="Feedback_Image" />
+          </div>
+        </Link>
+        <div className={style.mainPage__card_feedback_info}>
           <p>Обратная связь</p>
         </div>
       </div>
@@ -31,9 +35,3 @@ function MainPage() {
 }
 
 export default MainPage;
-
-// <p>
-//   Сколько ты спал:
-//   {' '}
-//   <input type="range" min="0" max="10" id="size" onInput="sizePic()" value="0" />
-// </p>;
