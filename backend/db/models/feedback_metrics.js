@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const {
   Model,
 } = require('sequelize');
@@ -9,12 +10,13 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-      // define association here
+    static associate({ feedback_metrics_types, feedback_items }) {
+      this.belongsTo(feedback_metrics_types, { foreignKey: 'type_id' });
+      this.hasMany(feedback_items, { foreignKey: 'metric_id' });
     }
   }
   feedback_metrics.init({
-    metric: DataTypes.STRING,
+    metric: DataTypes.TEXT,
     type_id: DataTypes.INTEGER,
   }, {
     sequelize,

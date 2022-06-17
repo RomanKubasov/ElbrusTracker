@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('feedback_items', {
@@ -10,7 +11,6 @@ module.exports = {
       feedback_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        unique: true,
         references: {
           model: 'feedbacks',
           key: 'id',
