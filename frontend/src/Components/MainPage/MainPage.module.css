@@ -1,3 +1,50 @@
-.MainPage {
-  margin: 20px;
+.mainPage {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 80px -15px 0;
+  flex-wrap: wrap;
+}
+
+.mainPage__card_progress {
+  width: 25%;
+  padding: 0 15px;
+}
+
+.mainPage__card_progress_inner {
+  position: relative;
+  background-color: #95e1d3;
+}
+
+.mainPage__card_progress_inner:hover .mainPage__card_progress_img {
+  transform: translate3D(-10px, -10px, 0);
+  cursor: pointer;
+}
+
+.mainPage__card_progress_inner:hover .mainPage__card_progress_img {
+  opacity: .9;
+}
+
+.mainPage__card_progress_img {
+  background: linear-gradient(to bottom, #f38181, #fce38a);
+  transition: transform .3s linear;
+}
+
+.mainPage__card_progress_img img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  transition: opacity .1s linear;
+}
+
+.mainPage__card_progress_info {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.mainPage__card_progress_info p {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 3px;
 }
