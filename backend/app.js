@@ -4,6 +4,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
 
+const progressRouter = require('./routes/progressRouter');
+
 const teamMatesRouter = require('./routes/teamMatesRouter');
 const feedBackRouter = require('./routes/feedBackRouter');
 const myFeedBackRouter = require('./routes/myFeedBackRouter');
@@ -17,6 +19,7 @@ app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use('/progress', progressRouter);
 app.use('/teammates', teamMatesRouter);
 app.use('/feedback', feedBackRouter);
 app.use('/myfeedback', myFeedBackRouter);
