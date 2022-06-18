@@ -76,6 +76,55 @@ module.exports = {
         type: 'text', createdAt: new Date(), updatedAt: new Date(),
       },
     ];
+    const feedbacks = [
+      {
+        from_user_id: 5, to_user_id: 4, team_id: null, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        from_user_id: 6, to_user_id: 4, team_id: null, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        from_user_id: 5, to_user_id: 4, team_id: null, createdAt: new Date(), updatedAt: new Date(),
+      },
+    ];
+    const feedback_items = [
+      {
+        feedback_id: 1, metric_id: 1, value: true, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        feedback_id: 1, metric_id: 2, value: true, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        feedback_id: 1, metric_id: 3, value: true, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        feedback_id: 1, metric_id: 15, value: true, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        feedback_id: 1, metric_id: 16, value: true, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        feedback_id: 1, metric_id: 19, value: 'в целом, отличный парень', createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        feedback_id: 2, metric_id: 1, value: true, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        feedback_id: 2, metric_id: 2, value: true, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        feedback_id: 2, metric_id: 6, value: true, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        feedback_id: 2, metric_id: 12, value: true, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        feedback_id: 2, metric_id: 19, value: 'иногда разговаривает сам с собой, в остальном, все хорошо...', createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        feedback_id: 3, metric_id: 19, value: 'а еще он крестиком вышивает ;)', createdAt: new Date(), updatedAt: new Date(),
+      },
+    ];
     const groups = [
       {
         name: 'leopards22', createdAt: new Date(), updatedAt: new Date(),
@@ -297,6 +346,8 @@ module.exports = {
     await queryInterface.bulkInsert('students', students);
     await queryInterface.bulkInsert('teams', teams);
     await queryInterface.bulkInsert('students_teams', students_teams);
+    await queryInterface.bulkInsert('feedbacks', feedbacks);
+    await queryInterface.bulkInsert('feedback_items', feedback_items);
   },
 
   async down(queryInterface, Sequelize) {
