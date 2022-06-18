@@ -5,6 +5,7 @@ import teamMatesReducer from './reducers/teamMatesReducer';
 import feedbackToReducer from './reducers/feedbackToReducer';
 import feedbackMetricsReducer from './reducers/feedbackMetricsReducer';
 import feedbackReducer from './reducers/feedbackReducer';
+import myFeedbackReducer from './reducers/myFeedbackReducer';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -14,6 +15,7 @@ export const store = configureStore({
     feedbackTo: feedbackToReducer,
     feedbackMetrics: feedbackMetricsReducer,
     feedback: feedbackReducer,
+    myFeedback: myFeedbackReducer,
   },
   middleware: (mid) => [...mid(), sagaMiddleware],
 });
