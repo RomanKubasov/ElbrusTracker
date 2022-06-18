@@ -51,7 +51,7 @@ module.exports = {
         indicator: 'mood', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        indicator: 'perfomance', createdAt: new Date(), updatedAt: new Date(),
+        indicator: 'performance', createdAt: new Date(), updatedAt: new Date(),
       },
     ];
     const teachers = [

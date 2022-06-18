@@ -4,6 +4,13 @@ require('dotenv').config();
 const morgan = require('morgan');
 const path = require('path');
 
+const progressRouter = require('./routes/progressRouter');
+
+
+
+
+
+
 const app = express();
 const PORT = 3001;
 
@@ -12,9 +19,14 @@ app.use(morgan('dev'));
 // app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// const { users } = require('./db/models');
 
-// users.findAll().then(console.log);
+app.use('/progress', progressRouter);
+
+
+
+
+
+
 
 app.use((req, res) => {
   res.status(404).send('router doesnt exist');
