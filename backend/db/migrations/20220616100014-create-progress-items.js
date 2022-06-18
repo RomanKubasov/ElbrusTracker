@@ -11,7 +11,6 @@ module.exports = {
       progress_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        unique: true,
         references: {
           model: 'progresses',
           key: 'id',
