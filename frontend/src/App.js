@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Routes,
   Route,
 } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { checkUser } from './Redux/actions/userAction';
 import MainPage from './Components/MainPage/MainPage';
 import MyFooter from './Components/MyFooter/MyFooter';
 import MyNav from './Components/MyNav/MyNav';
@@ -16,8 +18,14 @@ import LostButton from './Components/LostButton/LostButton';
 import TeacherMonitor from './Components/TeacherMonitor/TeacherMonitor';
 import Randomizer from './Components/Randomizer/Randomizer';
 import LearningProgram from './Components/LearningProgram/LearningProgram';
+// import AuthRouter from './Components/AuthRouter/AuthRouter';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(checkUser());
+  }, []);
+
   return (
     <div className="App">
       <MyNav />
