@@ -3,9 +3,11 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
+import FeedbackPage from './Components/FeedbackPage/FeedbackPage';
 import MainPage from './Components/MainPage/MainPage';
 import MyFooter from './Components/MyFooter/MyFooter';
 import MyNav from './Components/MyNav/MyNav';
+import ProgressPage from './Components/ProgressPage/ProgressPage';
 import SignIn from './Components/SignIn/SignIn';
 import Page404 from './Components/Page404/Page404';
 import MyFeedBack from './Components/MyFeedBack/MyFeedBack';
@@ -25,11 +27,11 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/progress" element={<ProgressPage />} />
         <Route path="*" element={<Page404 />} />
         <Route path="myfeedback" element={<MyFeedBack />} />
         <Route path="feedback" element={<FeedBack />} />
         <Route path="myprogress" element={<MyProgress />} />
-        <Route path="progress" element={<Progress />} />
         <Route path="lostbutton" element={<LostButton />} />
         <Route path="teachermonitor" element={<TeacherMonitor />} />
         <Route path="randomizer" element={<Randomizer />} />
