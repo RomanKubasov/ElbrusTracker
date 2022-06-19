@@ -18,12 +18,22 @@ function FeedBackForm() {
     dispatch(sendFeedBack({ id: el.id, value: 'true' }));
   }
   async function submitHandler() {
-    const response = await axios.post('http://localhost:3001/feedback', [...feedback, inputState, { currentUserId, feedbackTo }]);
+    let response;
+    if (Object.keys(inputState).length !== 0) {
+      response = await axios.post('http://localhost:3001/feedback', [...feedback, inputState, { currentUserId, feedbackTo }]);
+    } else {
+      response = await axios.post('http://localhost:3001/feedback', [...feedback, { currentUserId, feedbackTo }]);
+    }
     if (response.status === 200) {
       setInputState({});
       dispatch(clearFeedBack());
       dispatch(setFeedBackToUserId(null));
     }
+  }
+  function exitHandler() {
+    setInputState({});
+    dispatch(clearFeedBack());
+    dispatch(setFeedBackToUserId(null));
   }
   useEffect(() => { dispatch(getFeedBackMetricsRequest()); }, []);
   useEffect(() => { dispatch(getFeedBackMetricsRequest()); }, [feedbackTo]);
@@ -47,7 +57,7 @@ function FeedBackForm() {
         .map((el, index) => (<input id={el.id} onChange={changeTextHandler} key={index} />))}
       <br />
       <br />
-      <button type="button" onClick={() => { dispatch(setFeedBackToUserId(null)); }}>Выйти</button>
+      <button type="button" onClick={exitHandler}>Выйти</button>
       <button type="button" onClick={submitHandler}>Отправить</button>
     </>
   );

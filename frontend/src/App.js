@@ -25,7 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/progress" element={<ProgressPage />} />
+        <Route path="progress" element={<ProgressPage />} />
         <Route path="*" element={<Page404 />} />
         <Route path="myfeedback" element={<MyFeedBack />} />
         <Route path="feedback" element={<FeedBack />} />
