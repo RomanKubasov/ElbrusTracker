@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.messagebox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 40vh;
+  width: 20vw;
+  background-color: white;
+}
+
+.title {
+  font-size: 3vh;
+  color:gray;
+  text-align: center;  
+}
+
+.subtitle {
+  font-size: 4vh;
+  color:gray;
+  text-align: center;  
+}
+
+.imagebox {
+  font-size: 100px;
+  height: 40vh;
+  background-color: white;
+}

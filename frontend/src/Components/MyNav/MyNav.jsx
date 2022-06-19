@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Img from '../../images/tracker_logo.png';
 import style from './MyNav.module.css';
+
+const Img = 'images/ElbrusBootcamp.jpg';
 
 function MyNav() {
   const navigate = useNavigate();

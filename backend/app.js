@@ -1,16 +1,28 @@
 const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
+const morgan = require('morgan');
+const path = require('path');
+
+const progressRouter = require('./routes/progressRouter');
+
+const teamMatesRouter = require('./routes/teamMatesRouter');
+const feedBackRouter = require('./routes/feedBackRouter');
+const myFeedBackRouter = require('./routes/myFeedBackRouter');
 
 const app = express();
 const PORT = 3001;
-// const indexRouter = require('./routes/indexRouter');
 
+app.use(express.static(path.join(process.env.PWD, 'public')));
+app.use(morgan('dev'));
 app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// app.use('/', indexRouter);
+app.use('/progress', progressRouter);
+app.use('/teammates', teamMatesRouter);
+app.use('/feedback', feedBackRouter);
+app.use('/myfeedback', myFeedBackRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is started on port: ${PORT}`);
