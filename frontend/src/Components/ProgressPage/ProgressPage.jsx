@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
-import { FaBeer } from 'react-icons/fa';
 import {
   CgSmileNoMouth, CgSmileSad, CgSmileNeutral, CgSmile, CgSmileMouthOpen,
 } from 'react-icons/cg';

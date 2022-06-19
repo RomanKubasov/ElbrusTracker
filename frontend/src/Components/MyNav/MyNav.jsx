@@ -1,14 +1,19 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { userLogOut } from '../../Redux/actions/userAction';
 import style from './MyNav.module.css';
 
 const Img = 'images/ElbrusBootcamp.jpg';
 
 function MyNav() {
-  const navigate = useNavigate();
-  const navigateHandlerReg = () => {
-    navigate('/signup');
+  const { user } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const logOutHAndler = () => {
+    dispatch(userLogOut());
   };
+
+  const navigate = useNavigate();
 
   const navigateHandlerLog = () => {
     navigate('/signin');
@@ -23,8 +28,8 @@ function MyNav() {
       </div>
 
       <div className={style.registration}>
-        <button onClick={navigateHandlerReg} className={style.registration__signupBtn} type="submit">Зарегистрироваться</button>
-        <button onClick={navigateHandlerLog} className={style.registration__signinBtn} type="submit">Войти</button>
+        {user.login && (<button onClick={logOutHAndler} className={style.registration__signinBtn} type="submit">Выйти</button>)}
+        {!user.login && (<button onClick={navigateHandlerLog} className={style.registration__signinBtn} type="submit">Войти</button>)}
       </div>
     </div>
   );
