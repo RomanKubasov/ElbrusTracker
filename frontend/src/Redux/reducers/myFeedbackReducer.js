@@ -3,7 +3,7 @@ import {
   GET_MYFEEDBACK,
 } from '../types/types';
 
-const myFeedbackReducer = (state = [], action) => {
+const myFeedbackReducer = (state = {}, action) => {
   const { type, value } = action;
   switch (type) {
     case GET_MYFEEDBACK: {
