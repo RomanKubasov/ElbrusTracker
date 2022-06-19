@@ -14,6 +14,9 @@ function FeedBackForm() {
   function changeTextHandler(e) {
     setInputState({ id: Number(e.target.id), value: e.target.value });
   }
+  function buttonPressHandler(el) {
+    dispatch(sendFeedBack({ id: el.id, value: 'true' }));
+  }
   async function submitHandler() {
     const response = await axios.post('http://localhost:3001/feedback', [...feedback, inputState, { currentUserId, feedbackTo }]);
     if (response.status === 200) {
@@ -35,10 +38,10 @@ function FeedBackForm() {
       <br />
       <p>Сильные стороны</p>
       {feedbackMetrics.filter((el) => el.type_id === 1)
-        .map((el, index) => (<button type="button" key={index} onClick={() => dispatch(sendFeedBack({ id: el.id, value: 'true' }))}>{el.metric}</button>))}
+        .map((el, index) => (<button type="button" key={index} onClick={() => buttonPressHandler(el)}>{el.metric}</button>))}
       <p>Зоны для развития</p>
       {feedbackMetrics.filter((el) => el.type_id === 2)
-        .map((el, index) => (<button type="button" key={index} onClick={() => dispatch(sendFeedBack({ id: el.id, value: 'true' }))}>{el.metric}</button>))}
+        .map((el, index) => (<button type="button" key={index} onClick={() => buttonPressHandler(el)}>{el.metric}</button>))}
       <p>Можете что-то добавить в произвольной форме</p>
       {feedbackMetrics.filter((el) => el.type_id === 3)
         .map((el, index) => (<input id={el.id} onChange={changeTextHandler} key={index} />))}
