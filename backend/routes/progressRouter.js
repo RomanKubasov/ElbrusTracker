@@ -9,7 +9,9 @@ router.route('/')
     const {
       mood, sleep, performance, git_login,
     } = req.body;
+
     const user = await users.findOne({ where: { login: git_login } });
+
     if (user) {
       if (mood && sleep && performance) {
         const newProgress = await progresses.create({
