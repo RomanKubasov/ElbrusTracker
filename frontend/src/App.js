@@ -3,7 +3,6 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import FeedbackPage from './Components/FeedbackPage/FeedbackPage';
 import MainPage from './Components/MainPage/MainPage';
 import MyFooter from './Components/MyFooter/MyFooter';
 import MyNav from './Components/MyNav/MyNav';
@@ -13,7 +12,6 @@ import Page404 from './Components/Page404/Page404';
 import MyFeedBack from './Components/MyFeedBack/MyFeedBack';
 import FeedBack from './Components/FeedBack/FeedBack';
 import MyProgress from './Components/MyProgress/MyProgress';
-import Progress from './Components/Progress/Progress';
 import LostButton from './Components/LostButton/LostButton';
 import TeacherMonitor from './Components/TeacherMonitor/TeacherMonitor';
 import Randomizer from './Components/Randomizer/Randomizer';
