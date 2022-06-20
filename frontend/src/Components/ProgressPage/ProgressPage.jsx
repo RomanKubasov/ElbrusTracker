@@ -24,10 +24,10 @@ function ProgressPage() {
     }).then((res) => console.log(res));
   }
 
-  function moodHandler(e) {
-    e.preventDefault();
-    console.log(e.target);
-    setMood(e.target.id);
+  function moodHandler(index) {
+    // e.preventDefault();
+    // console.log(index);
+    setMood(index);
   }
 
   function changeHandler(e) {
@@ -38,6 +38,7 @@ function ProgressPage() {
     setResValue(e.target.value);
   }
 
+  const array = [style.mouth, style.sad, style.neutral, style.smile, style.mouth_pen];
   return (
     <div className={style.progress}>
       <h2 className={style.progress__title}>Progress Tracker</h2>
@@ -45,11 +46,67 @@ function ProgressPage() {
       <div className={style.mood}>
         <h3 className={style.mood__title}>Как настроение ?</h3>
         <div className={style.mood__emojis}>
-          <button onClick={moodHandler} id="1" type="button">
+          {array.map((el, index) => {
+            switch (index) {
+              case 0:
+                return (
+                  <CgSmileNoMouth
+                    key="0"
+                    onClick={() => moodHandler(index)}
+                    className={style.mouth}
+                  />
+                );
+
+              case 1:
+                return (
+                  <CgSmileSad
+                    key="1"
+                    onClick={() => moodHandler(index)}
+                    className={style.sad}
+                  />
+                );
+
+              case 2:
+                return (
+                  <CgSmileNeutral
+                    key="2"
+                    onClick={() => moodHandler(index)}
+                    className={style.neutral}
+                  />
+                );
+
+              case 3:
+                return (
+                  <CgSmile
+                    key="3"
+                    onClick={() => moodHandler(index)}
+                    className={style.smile}
+                  />
+                );
+
+              case 4:
+                return (
+                  <CgSmileMouthOpen
+                    key="4"
+                    onClick={() => moodHandler(index)}
+                    className={style.mouth_pen}
+                  />
+                );
+
+              default:
+                return null;
+            }
+            //   < CgSmileNoMouth onClick = {() => moodHandler(index)} className={style.mouth} />
+            // <CgSmileSad className={style.sad} />
+            // <CgSmileNeutral className={style.neutral} />
+            // <CgSmile className={style.smile} />
+            // <CgSmileMouthOpen className={style.mouth_pen} />
+          })}
+          {/* <button onClick={moodHandler} type="button">
             <CgSmileNoMouth className={style.mouth} />
           </button>
 
-          <button onClick={moodHandler} id="2" type="button">
+          <button onClick={moodHandler} type="button">
             <CgSmileSad className={style.sad} />
           </button>
           <button onClick={moodHandler} id="3" type="button">
@@ -60,7 +117,7 @@ function ProgressPage() {
           </button>
           <button onClick={moodHandler} id="5" type="button">
             <CgSmileMouthOpen className={style.mouth_pen} />
-          </button>
+          </button> */}
         </div>
       </div>
 
