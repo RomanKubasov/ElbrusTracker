@@ -175,10 +175,12 @@ input[type=range]::-moz-range-thumb {
 
 input[type=range]::-webkit-slider-thumb:active {
   cursor: -webkit-grabbing;
+  transform: scale(1.4);
 }
 
 input[type=range]::-moz-range-thumb:active {
   cursor: -moz-grabbing;
+  transform: scale(1.4);
 }
 /* End: input - range Controller */
 
