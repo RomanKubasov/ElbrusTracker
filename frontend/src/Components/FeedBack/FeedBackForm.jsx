@@ -12,6 +12,7 @@ function FeedBackForm() {
   const dispatch = useDispatch();
   const [inputState, setInputState] = useState({});
   function changeTextHandler(e) {
+    // for (let i=0;i<feedback.length)
     setInputState({ id: Number(e.target.id), value: e.target.value });
   }
   function buttonPressHandler(el) {
