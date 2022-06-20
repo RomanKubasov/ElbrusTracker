@@ -1,4 +1,7 @@
 /* eslint-disable camelcase */
+const fs = require('fs').promises;
+const path = require('path');
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     const roles = [
@@ -214,69 +217,323 @@ module.exports = {
       {
         user_id: 20, group_id: 1, createdAt: new Date(), updatedAt: new Date(),
       },
+      {
+        user_id: 21, group_id: 1, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 22, group_id: 1, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 23, group_id: 1, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 24, group_id: 1, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 25, group_id: 1, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 26, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 27, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 28, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 29, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 30, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 31, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 32, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 33, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 34, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 35, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 36, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 37, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 38, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 39, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 40, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 41, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 42, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 43, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 44, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 45, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 46, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 47, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 48, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 49, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 50, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 51, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 52, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 53, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 54, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 55, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 56, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 57, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 58, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 59, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 60, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 61, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 62, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 63, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 64, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 65, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 66, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 67, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 68, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 69, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 70, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 71, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 72, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 73, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 74, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 75, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 76, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 77, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 78, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 79, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 80, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 81, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 82, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 83, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 84, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 85, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 86, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 87, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 88, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 89, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 90, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 91, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 92, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 93, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 94, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        user_id: 95, group_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
     ];
-    const users = [
+
+    const users1 = [
       {
-        name: null, login: 'panferovDev', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
+        name: 'Антон Панферов', login: 'panferovDev', git_id: null, avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        name: null, login: 'balkoev', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
+        name: 'Адам Балкоев', login: 'balkoev', git_id: null, avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        name: null, login: 'd4rsen', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        name: null, login: 'RomanKubasov', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        name: null, login: 'ABessonov', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        name: null, login: 'omarovfrontend', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        name: null, login: 'errraaaa', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        name: null, login: 'AliasFinn', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        name: null, login: 'lisaliskin', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        name: null, login: 'Khkimov', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        name: null, login: 'RamK-16', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        name: null, login: 'pavelkazhgin', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        name: null, login: '89163091443', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        name: null, login: 'elefant86', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        name: null, login: 'MrIcePea', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        name: null, login: 'playbey', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        name: null, login: 'JackieSav', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        name: null, login: 'VictorKarvatsky', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        name: null, login: 'ToxicYouth', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        name: null, login: 'Engagelol', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
+        name: 'Дарсен Унгарлинов', login: 'd4rsen', git_id: null, avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
       },
     ];
+    const users2 = (await fs.readFile(path.join(process.env.PWD, 'db/seeders/students.txt'), 'utf-8'))
+      .split('\n')
+      .map((el) => el.split('\t'))
+      .map((el) => ({
+        name: el[0],
+        login: el[1].split('\https://github.com/', 2).slice(1)[0],
+        git_id: null,
+        avatar_url: null,
+        pass: null,
+        role_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      }));
+    const users = users1.concat(users2);
+    // const users = users1;
+    console.log(users);
+
+    // const users = [
+    //   {
+    //     name: null, login: 'panferovDev', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: 'balkoev', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: 'd4rsen', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: 'RomanKubasov', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: 'ABessonov', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: 'omarovfrontend', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: 'errraaaa', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: 'AliasFinn', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: 'lisaliskin', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: 'Khkimov', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: 'RamK-16', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: 'pavelkazhgin', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: '89163091443', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: 'elefant86', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: 'MrIcePea', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: 'playbey', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: 'JackieSav', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: 'VictorKarvatsky', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: 'ToxicYouth', avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    //   {
+    //     name: null, login: 'Engagelol', avatar_url: null, pass: null, role_id: 2, createdAt: new Date(), updatedAt: new Date(),
+    //   },
+    // ];
     const teams = [
       { createdAt: new Date(), updatedAt: new Date() },
       { createdAt: new Date(), updatedAt: new Date() },
