@@ -1,0 +1,38 @@
+.feedbackForm__block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedbackForm__titles {
+  font-size: 24px;
+  color: #780cd6;
+}
+
+.feedBackForm__button {
+  padding: 10px;
+  border: none;
+  margin: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all .3s linear;
+}
+
+.feedBackForm__button:hover {
+  background-color: #780cd6;
+  color: #fff;
+}
+
+.feedBackForm__text {
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  outline: none;
+}
+
+.feedBackForm__text:focus {
+  outline: none;
+  border-color: #000;
+}
