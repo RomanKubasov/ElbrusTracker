@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const express = require('express');
 require('dotenv').config();
 const session = require('express-session');
@@ -24,7 +25,6 @@ const sessionConfig = {
   cookie: {
     expires: 24 * 60 * 60e3,
     httpOnly: true,
-    // secure: true,
   },
 };
 

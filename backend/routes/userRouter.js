@@ -1,80 +1,11 @@
-// const express = require('express');
-// const ClientOAuth2 = require('client-oauth2');
-// // const { users } = require('../db/models');
-// // const GitHubStrategy = require('passport-github-oauth20').Strategy;
-
-// const router = express.Router();
-
-// // простая аутентификация
-// // router.post('/auth', async (req, res) => {
-// //   const { name } = req.body;
-// //   const { pass } = req.body;
-// //   const currentUser = await users.findOne({ where: { name } });
-// //   if (currentUser) {
-// //     const validationPass = await currentUser.compare(pass, currentUser.pass);
-// //     if (validationPass) {
-// //       req.session.userName = currentUser.name;
-// //       req.session.userId = currentUser.id;
-// //       res.sendStatus(200);
-// //     } else {
-// //       res.sendStatus(403);
-// //     }
-// //   } else {
-// //     res.sendStatus(403);
-// //   }
-// // });
-
-// // гитхабная аутентификация
-
-// const githubAuth = new ClientOAuth2({
-//   clientId: '58ed0551023e8ee6b590',
-//   clientSecret: '0c45186e1609d7cb4db6a4d03ad9bb2d650a10ae',
-//   accessTokenUri: 'https://github.com/login/oauth/access_token',
-//   authorizationUri: 'https://github.com/login/oauth/authorize',
-//   redirectUri: 'http://localhost:3001/auth/github/callback',
-//   // scopes: ['notifications', 'gist'],
-// });
-
-// router.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin-Credentials', true);
-//   res.header('Access-Control-Allow-Methods', 'GET,PUT,DELETE,UPDATE,POST,OPTIONS');
-//   res.header('Access-Control-Allow-Origin', 'http://localhost:3001');
-//   res.header('Access-control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
-//   next();
-// });
-
-// router.get('/auth/github', (req, res) => {
-//   console.log('>>>>> we ar here', githubAuth.code.getUri());
-//   const uri = githubAuth.code.getUri();
-//   res.redirect(uri);
-// });
-
-// router.get('/auth/github/callback', (req, res) => {
-//   console.log('>>>>> also here');
-//   githubAuth.code.getToken(req.originalUrl)
-//     .then((user) => {
-//       console.log(user); //= > { accessToken: '...', tokenType: 'bearer', ... }
-
-//       // Refresh the current users access token.
-//       user.refresh().then((updatedUser) => {
-//         console.log(updatedUser !== user); //= > true
-//         console.log(updatedUser.accessToken);
-//       });
-
-//       // Sign API requests on behalf of the current user.
-//       user.sign({
-//         method: 'get',
-//         url: 'http://example.com',
-//       });
-
-//       // We should store the token into a database.
-//       return res.send(user.accessToken);
-//     });
-// });
-
+/* eslint-disable camelcase */
 const router = require('express').Router();
-const bycrypt = require('bcrypt');
+const fetch = require('node-fetch');
 const { users } = require('../db/models');
+
+const client_id = process.env.CLIENT_ID;
+const redirect_uri = process.env.REDIRECT_URI;
+const client_secret = process.env.CLIENT_SECRET;
 
 router.route('/')
   .get(async (req, res) => {
@@ -107,6 +38,40 @@ router.route('/logout')
   .get((req, res) => {
     req.session.destroy();
     res.clearCookie('sid').sendStatus(200);
+  });
+
+router.route('/authenticate')
+  .post(async (req, res) => {
+    const { code } = req.body;
+
+    const string = `?client_id=${client_id}&client_secret=${client_secret}&code=${code}&redirect_uri=${redirect_uri}`;
+
+    try {
+      // Request to exchange code for an access token
+      let response = await fetch(`https://github.com/login/oauth/access_token/${string}`, {
+        method: 'POST',
+      });
+      response = await response.text();
+      const params = new URLSearchParams(response);
+      const access_token = params.get('access_token');
+
+      // Request to return data of a user that has been authenticated
+      response = await fetch('https://api.github.com/user', { headers: { Authorization: `token ${access_token}` } });
+      response = await response.json();
+
+      let user = await users.findOne({ where: { login: response.login } });
+      user = JSON.parse(JSON.stringify(user));
+      if (user) {
+        const { login, name, avatar_url } = response;
+        await users.update({ name, avatar_url }, { where: { login } });
+
+        req.session.user = { ...user, name, avatar_url };
+        return res.status(200).json(req.session.user);
+      }
+      return res.sendStatus(401);
+    } catch (error) {
+      return res.status(400).json(error);
+    }
   });
 
 module.exports = router;
