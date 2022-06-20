@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
-import { FaBeer } from 'react-icons/fa';
 import {
   CgSmileNoMouth, CgSmileSad, CgSmileNeutral, CgSmile, CgSmileMouthOpen,
 } from 'react-icons/cg';
@@ -27,6 +26,7 @@ function ProgressPage() {
 
   function moodHandler(e) {
     e.preventDefault();
+    console.log(e.target);
     setMood(e.target.id);
   }
 
@@ -48,6 +48,7 @@ function ProgressPage() {
           <button onClick={moodHandler} id="1" type="button">
             <CgSmileNoMouth className={style.mouth} />
           </button>
+
           <button onClick={moodHandler} id="2" type="button">
             <CgSmileSad className={style.sad} />
           </button>
