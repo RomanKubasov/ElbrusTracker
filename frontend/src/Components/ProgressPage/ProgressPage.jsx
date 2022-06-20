@@ -46,6 +46,7 @@ function ProgressPage() {
       <div className={style.mood}>
         <h3 className={style.mood__title}>Как настроение ?</h3>
         <div className={style.mood__emojis}>
+
           {array.map((el, index) => {
             switch (index) {
               case 0:
@@ -96,28 +97,10 @@ function ProgressPage() {
               default:
                 return null;
             }
-            //   < CgSmileNoMouth onClick = {() => moodHandler(index)} className={style.mouth} />
-            // <CgSmileSad className={style.sad} />
-            // <CgSmileNeutral className={style.neutral} />
-            // <CgSmile className={style.smile} />
-            // <CgSmileMouthOpen className={style.mouth_pen} />
+           
           })}
-          {/* <button onClick={moodHandler} type="button">
-            <CgSmileNoMouth className={style.mouth} />
-          </button>
+          
 
-          <button onClick={moodHandler} type="button">
-            <CgSmileSad className={style.sad} />
-          </button>
-          <button onClick={moodHandler} id="3" type="button">
-            <CgSmileNeutral className={style.neutral} />
-          </button>
-          <button onClick={moodHandler} id="4" type="button">
-            <CgSmile className={style.smile} />
-          </button>
-          <button onClick={moodHandler} id="5" type="button">
-            <CgSmileMouthOpen className={style.mouth_pen} />
-          </button> */}
         </div>
       </div>
 
