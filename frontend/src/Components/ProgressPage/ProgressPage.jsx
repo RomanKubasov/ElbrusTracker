@@ -24,10 +24,10 @@ function ProgressPage() {
     }).then((res) => console.log(res));
   }
 
-  function moodHandler(e) {
-    e.preventDefault();
-    console.log(e.target);
-    setMood(e.target.id);
+  function moodHandler(index) {
+    // e.preventDefault();
+    // console.log(index);
+    setMood(index);
   }
 
   function changeHandler(e) {
@@ -38,6 +38,7 @@ function ProgressPage() {
     setResValue(e.target.value);
   }
 
+  const array = [style.mouth, style.sad, style.neutral, style.smile, style.mouth_pen];
   return (
     <div className={style.progress}>
       <h2 className={style.progress__title}>Progress Tracker</h2>
@@ -45,22 +46,61 @@ function ProgressPage() {
       <div className={style.mood}>
         <h3 className={style.mood__title}>Как настроение ?</h3>
         <div className={style.mood__emojis}>
-          <button onClick={moodHandler} id="1" type="button" className={style.mouth}>
-            <CgSmileNoMouth />
-          </button>
 
-          <button onClick={moodHandler} id="2" type="button" className={style.sad}>
-            <CgSmileSad />
-          </button>
-          <button onClick={moodHandler} id="3" type="button" className={style.neutral}>
-            <CgSmileNeutral />
-          </button>
-          <button onClick={moodHandler} id="4" type="button" className={style.smile}>
-            <CgSmile />
-          </button>
-          <button onClick={moodHandler} id="5" type="button" className={style.mouth_pen}>
-            <CgSmileMouthOpen />
-          </button>
+          {array.map((el, index) => {
+            switch (index) {
+              case 0:
+                return (
+                  <CgSmileNoMouth
+                    key="0"
+                    onClick={() => moodHandler(index)}
+                    className={style.mouth}
+                  />
+                );
+
+              case 1:
+                return (
+                  <CgSmileSad
+                    key="1"
+                    onClick={() => moodHandler(index)}
+                    className={style.sad}
+                  />
+                );
+
+              case 2:
+                return (
+                  <CgSmileNeutral
+                    key="2"
+                    onClick={() => moodHandler(index)}
+                    className={style.neutral}
+                  />
+                );
+
+              case 3:
+                return (
+                  <CgSmile
+                    key="3"
+                    onClick={() => moodHandler(index)}
+                    className={style.smile}
+                  />
+                );
+
+              case 4:
+                return (
+                  <CgSmileMouthOpen
+                    key="4"
+                    onClick={() => moodHandler(index)}
+                    className={style.mouth_pen}
+                  />
+                );
+
+              default:
+                return null;
+            }
+           
+          })}
+          
+
         </div>
       </div>
 
