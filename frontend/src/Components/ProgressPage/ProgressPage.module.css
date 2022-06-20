@@ -55,19 +55,25 @@
   transition: color .3s ease-out;
 }
 
-.mouth:hover,
-.sad:hover,
-.neutral:hover,
-.smile:hover,
-.mouth_pen:hover {
+/* .mouth:active,
+.sad:active,
+.neutral:active,
+.smile:active,
+.mouth_pen:active {
+  color: rgb(255, 255, .5);
+} */
+
+.mouth:focus,
+.sad:focus,
+.neutral:focus,
+.smile:focus,
+.mouth_pen:focus {
   color: rgb(255, 255, .5);
 }
 
-.sleep__control_container {
-  /* width: 100%; */
-  /* margin: 0 10px; */
-  /* margin: 16px; */
-  /* padding: 0 10px; */
+.sleep__control_container,
+.resultOfDay__control_container {
+  position: relative;
 }
 
 /* Input - range Controller */

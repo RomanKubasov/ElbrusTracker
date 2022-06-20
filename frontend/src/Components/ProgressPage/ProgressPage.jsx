@@ -45,21 +45,21 @@ function ProgressPage() {
       <div className={style.mood}>
         <h3 className={style.mood__title}>Как настроение ?</h3>
         <div className={style.mood__emojis}>
-          <button onClick={moodHandler} id="1" type="button">
-            <CgSmileNoMouth className={style.mouth} />
+          <button onClick={moodHandler} id="1" type="button" className={style.mouth}>
+            <CgSmileNoMouth />
           </button>
 
-          <button onClick={moodHandler} id="2" type="button">
-            <CgSmileSad className={style.sad} />
+          <button onClick={moodHandler} id="2" type="button" className={style.sad}>
+            <CgSmileSad />
           </button>
-          <button onClick={moodHandler} id="3" type="button">
-            <CgSmileNeutral className={style.neutral} />
+          <button onClick={moodHandler} id="3" type="button" className={style.neutral}>
+            <CgSmileNeutral />
           </button>
-          <button onClick={moodHandler} id="4" type="button">
-            <CgSmile className={style.smile} />
+          <button onClick={moodHandler} id="4" type="button" className={style.smile}>
+            <CgSmile />
           </button>
-          <button onClick={moodHandler} id="5" type="button">
-            <CgSmileMouthOpen className={style.mouth_pen} />
+          <button onClick={moodHandler} id="5" type="button" className={style.mouth_pen}>
+            <CgSmileMouthOpen />
           </button>
         </div>
       </div>
