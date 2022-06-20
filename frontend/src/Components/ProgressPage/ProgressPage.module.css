@@ -55,19 +55,11 @@
   transition: color .3s ease-out;
 }
 
-/* .mouth:active,
-.sad:active,
-.neutral:active,
-.smile:active,
-.mouth_pen:active {
-  color: rgb(255, 255, .5);
-} */
-
-.mouth:focus,
-.sad:focus,
-.neutral:focus,
-.smile:focus,
-.mouth_pen:focus {
+.mouth.yellow,
+.sad.yellow,
+.neutral.yellow,
+.smile.yellow,
+.mouth_pen.yellow {
   color: rgb(255, 255, .5);
 }
 

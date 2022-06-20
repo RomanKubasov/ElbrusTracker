@@ -1,32 +1,34 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
 import {
   CgSmileNoMouth, CgSmileSad, CgSmileNeutral, CgSmile, CgSmileMouthOpen,
 } from 'react-icons/cg';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import style from './ProgressPage.module.css';
 
 function ProgressPage() {
-  const [mood, setMood] = useState('3');
+  const [mood, setMood] = useState(-1);
   const [sleepValue, setSleepValue] = useState(0);
   const [resValue, setResValue] = useState(1);
-
+  const navigate = useNavigate();
   const currentUser = 'ABessonov';
 
-  function submitHandler(event) {
+  async function submitHandler(event) {
     event.preventDefault();
-
-    axios.post('http://localhost:3001/progress', {
+    const response = await axios.post('http://localhost:3001/progress', {
       mood,
       performance: resValue,
       sleep: sleepValue,
       git_login: currentUser,
-    }).then((res) => console.log(res));
+    });
+    navigate('/myprogress');
+
+    return null;
   }
 
   function moodHandler(index) {
-    // e.preventDefault();
-    // console.log(index);
     setMood(index);
   }
 
@@ -39,6 +41,7 @@ function ProgressPage() {
   }
 
   const array = [style.mouth, style.sad, style.neutral, style.smile, style.mouth_pen];
+
   return (
     <div className={style.progress}>
       <h2 className={style.progress__title}>Progress Tracker</h2>
@@ -51,55 +54,79 @@ function ProgressPage() {
             switch (index) {
               case 0:
                 return (
-                  <CgSmileNoMouth
+                  <button
                     key="0"
                     onClick={() => moodHandler(index)}
-                    className={style.mouth}
-                  />
+                    className={mood === index ? `${style.mouth} ${style.yellow}` : style.mouth}
+                    type="button"
+
+                  >
+                    <CgSmileNoMouth />
+
+                  </button>
+
                 );
 
               case 1:
                 return (
-                  <CgSmileSad
+                  <button
                     key="1"
                     onClick={() => moodHandler(index)}
-                    className={style.sad}
-                  />
+                    className={mood === index ? `${style.sad} ${style.yellow}` : style.sad}
+                    type="button"
+                  >
+                    <CgSmileSad />
+
+                  </button>
+
                 );
 
               case 2:
                 return (
-                  <CgSmileNeutral
+                  <button
                     key="2"
                     onClick={() => moodHandler(index)}
-                    className={style.neutral}
-                  />
+                    className={mood === index ? `${style.neutral} ${style.yellow}` : style.neutral}
+                    type="button"
+                  >
+                    <CgSmileNeutral />
+
+                  </button>
+
                 );
 
               case 3:
                 return (
-                  <CgSmile
+                  <button
                     key="3"
                     onClick={() => moodHandler(index)}
-                    className={style.smile}
-                  />
+                    className={mood === index ? `${style.smile} ${style.yellow}` : style.smile}
+                    type="button"
+                  >
+                    <CgSmile />
+
+                  </button>
+
                 );
 
               case 4:
                 return (
-                  <CgSmileMouthOpen
+                  <button
                     key="4"
                     onClick={() => moodHandler(index)}
-                    className={style.mouth_pen}
-                  />
+                    className={mood === index ? `${style.mouth_pen} ${style.yellow}` : style.mouth_pen}
+                    type="button"
+                  >
+                    <CgSmileMouthOpen />
+
+                  </button>
+
                 );
 
               default:
                 return null;
             }
-           
           })}
-          
 
         </div>
       </div>
