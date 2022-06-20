@@ -1,4 +1,5 @@
 import {
+  CLICK_METRIC,
   GET_FEEDBACK_METRICS,
 } from '../types/types';
 
@@ -12,3 +13,7 @@ export const getFeedBackMetricsRequest = () => async (dispatch) => {
   const data = await res.json();
   dispatch(getFeedBackMetrics(JSON.parse(JSON.stringify(data))));
 };
+export const actionClickMetric = (id) => ({
+  type: CLICK_METRIC,
+  value: id,
+});
