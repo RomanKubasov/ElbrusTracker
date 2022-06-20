@@ -134,7 +134,7 @@ function ProgressPage() {
       <div className={style.sleep}>
         <h3 className={style.sleep__title}>Сколько ты спал ?</h3>
         <div className={style.sleep__control_container}>
-          <span>{sleepValue}</span>
+          <span className={style.sleep__control_container__initialValue}>{sleepValue}</span>
           <input
             className={style.range}
             type="range"
@@ -143,14 +143,14 @@ function ProgressPage() {
             value={sleepValue}
             onChange={changeHandler}
           />
-          <span>8+</span>
+          <span className={style.sleep__control_container__finallyValue}>8+</span>
         </div>
       </div>
 
       <div className={style.resultOfDay}>
         <h3 className={style.resultOfDay__title}>Как ты оцениваешь результат сегодняшнего дня ?</h3>
         <div className={style.resultOfDay__control_container}>
-          <span>{resValue}</span>
+          <span className={style.resultOfDay__control_container__initialValue}>{resValue}</span>
           <input
             className={`${style.range} ${style.range__resultOfDay}`}
             type="range"
@@ -159,7 +159,7 @@ function ProgressPage() {
             value={resValue}
             onChange={changeHandlerRes}
           />
-          <span>10</span>
+          <span className={style.resultOfDay__control_container__finallyValue}>10</span>
         </div>
       </div>
 

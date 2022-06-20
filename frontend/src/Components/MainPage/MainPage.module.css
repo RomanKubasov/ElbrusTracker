@@ -4,6 +4,7 @@
   align-items: center;
   margin: 80px -15px 0;
   flex-wrap: wrap;
+  height: 50vh;
 }
 
 .mainPage__card_progress,
@@ -52,8 +53,9 @@
 
 .mainPage__card_progress_info p,
 .mainPage__card_feedback_info p {
-  font-size: 16px;
   text-transform: uppercase;
   color: #333;
   margin: 5px;
+  font-size: 24px;
+  font-weight: 600;
 }
