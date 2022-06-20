@@ -470,7 +470,6 @@ module.exports = {
       }));
     const users = users1.concat(users2);
     // const users = users1;
-    console.log(users);
 
     // const users = [
     //   {

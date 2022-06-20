@@ -14,19 +14,19 @@ function FeedBackForm() {
   const [inputState, setInputState] = useState({});
 
   function changeTextHandler(e) {
-    // for (let i=0;i<feedback.length)
     setInputState({ id: Number(e.target.id), value: e.target.value });
   }
   function buttonPressHandler(el) {
     dispatch(actionClickMetric(el.id));
-    dispatch(sendFeedBack({ id: el.id, value: 'true' }));
   }
   async function submitHandler() {
     let response;
+    const feedbackToBack = feedbackMetrics.filter((el) => el.clicked === true);
+    const feedbackToBackPrepared = feedbackToBack.map((el) => ({ id: el.id, value: true }));
     if (Object.keys(inputState).length !== 0) {
-      response = await axios.post('http://localhost:3001/feedback', [...feedback, inputState, { currentUserId, feedbackTo }]);
+      response = await axios.post('http://localhost:3001/feedback', [...feedbackToBackPrepared, inputState, { currentUserId, feedbackTo }]);
     } else {
-      response = await axios.post('http://localhost:3001/feedback', [...feedback, { currentUserId, feedbackTo }]);
+      response = await axios.post('http://localhost:3001/feedback', [...feedbackToBackPrepared, { currentUserId, feedbackTo }]);
     }
     if (response.status === 200) {
       setInputState({});
