@@ -5,4 +5,4 @@ export const SEND_FEEDBACK = 'SEND_FEEDBACK';
 export const GET_MYFEEDBACK = 'GET_MYFEEDBACK';
 export const CLEAR_FEEDBACK = 'CLEAR_FEEDBACK';
 export const SET_USER = 'SET_USER';
-export const DELETE_FEEDBACK = 'DELETE_FEEDBACK';
+export const CLICK_METRIC = 'CLICK_METRIC';
