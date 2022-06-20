@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { setFeedBackToUserId } from '../../Redux/actions/feedbackToAction';
 import { getFeedBackMetricsRequest } from '../../Redux/actions/feedbackMetricsAction';
-import { sendFeedBack, clearFeedBack } from '../../Redux/actions/feedbackAction';
+import { sendFeedBack, clearFeedBack, deleteFeedBack } from '../../Redux/actions/feedbackAction';
 import style from './FeedBackForm.module.css';
 
 function FeedBackForm() {
@@ -13,11 +13,20 @@ function FeedBackForm() {
   const dispatch = useDispatch();
   const [inputState, setInputState] = useState({});
   function changeTextHandler(e) {
-    // for (let i=0;i<feedback.length)
     setInputState({ id: Number(e.target.id), value: e.target.value });
   }
   function buttonPressHandler(el) {
-    dispatch(sendFeedBack({ id: el.id, value: 'true' }));
+    if (feedback.length === 0) {
+      dispatch(sendFeedBack({ id: el.id, value: 'true' }));
+    } else {
+      for (let i = 0; i < feedback.length; i += 1) {
+        if (feedback[i].id == el.id) {
+          dispatch(deleteFeedBack(el.id));
+        } else {
+          dispatch(sendFeedBack({ id: el.id, value: 'true' }));
+        }
+      }
+    }
   }
   async function submitHandler() {
     let response;
