@@ -7,22 +7,22 @@ export const setUser = (value) => ({
 });
 
 export const checkUser = () => (dispatch) => {
-  axios.post('http://localhost:3001/user/check')
+  axios.post(`${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/user/check`)
     .then((response) => dispatch(setUser(response.data)))
     .catch((err) => dispatch(setUser({})));
 };
 
 export const userLogOut = () => (dispatch) => {
-  axios('http://localhost:3001/user/logout')
+  axios(`${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/user/logout`)
     .then((res) => dispatch(setUser({})));
 };
 
 export const userLogIn = (value) => (dispatch) => {
-  axios.post('http://localhost:3001/user/login', value)
+  axios.post(`${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/user/login`, value)
     .then((res) => dispatch(setUser(res.data)));
 };
 
 export const userGitLogIn = (value) => (dispatch) => {
-  axios.post('http://localhost:3001/authenticate', value)
-    .then((res) => { console.log('DATA--->', res.data); dispatch(setUser(res.data)); });
+  axios.post(`${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/user/authenticate`, value)
+    .then((res) => { dispatch(setUser(res.data)); });
 };

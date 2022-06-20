@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { userGitLogIn } from '../../Redux/actions/userAction';
 
-export default function Login() {
+export default function SignInGit() {
   const dispatch = useDispatch();
   const client_id = process.env.REACT_APP_CLIENT_ID;
   const redirect_uri = process.env.REACT_APP_REDIRECT_URI;

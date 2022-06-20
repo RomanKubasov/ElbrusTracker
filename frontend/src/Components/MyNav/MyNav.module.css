@@ -42,3 +42,16 @@
   background-color: #18547f71;
   border: 1px solid #eeb663;
 }
+
+.photo {
+  display: block;
+  width: 60px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.welcome {
+  display: flex;
+  color: white;
+  align-items: center;
+}
