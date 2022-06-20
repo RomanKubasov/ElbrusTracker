@@ -14,8 +14,6 @@ const myFeedBackRouter = require('./routes/myFeedBackRouter');
 
 const app = express();
 const PORT = 3001;
-// const indexRouter = require('./routes/indexRouter');
-const userRouter = require('./routes/userRouter');
 
 const sessionConfig = {
   store: new FileStore(),
