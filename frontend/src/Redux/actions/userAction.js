@@ -21,3 +21,8 @@ export const userLogIn = (value) => (dispatch) => {
   axios.post('http://localhost:3001/user/login', value)
     .then((res) => dispatch(setUser(res.data)));
 };
+
+export const userGitLogIn = (value) => (dispatch) => {
+  axios.post('http://localhost:3001/authenticate', value)
+    .then((res) => { console.log('DATA--->', res.data); dispatch(setUser(res.data)); });
+};
