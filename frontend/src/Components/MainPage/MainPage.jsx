@@ -5,6 +5,7 @@ import { getDataSocket } from '../../Redux/actions/dataSocketAction';
 import style from './MainPage.module.css';
 import imgProgress from '../../images/progress_img.jpg';
 import imgFeedback from '../../images/feedback.jpg';
+import imgTeacherMonitor from '../../images/teacher_monitor.jpg';
 
 function MainPage() {
   const dispatch = useDispatch();
@@ -47,7 +48,7 @@ function MainPage() {
       <div className={style.mainPage__card_feedback}>
         <Link to="/teachermonitor" onClick={() => join()} className={style.mainPage__card_feedback_inner}>
           <div className={style.mainPage__card_feedback_img}>
-            <img src={imgFeedback} alt="Feedback_Image" />
+            <img src={imgTeacherMonitor} alt="Feedback_Image" />
           </div>
         </Link>
         <div className={style.mainPage__card_feedback_info}>
