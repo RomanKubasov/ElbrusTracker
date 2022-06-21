@@ -30,10 +30,20 @@ function MyNav() {
       <div className={style.registration}>
         {user.login && (
         <div className={style.welcome}>
-          Вы вошли как
-            {' '}
-            {user.name}
-            {' '}
+          <div className={style.welcometext}>
+            <span>
+              Привет
+              {' '}
+              {user.name}
+              {' '}
+            </span>
+            <span>
+              Тебе доступны группы:
+              {' '}
+              {user.userStudents.map((el) => (<div key={el.id}>{el.name}</div>))}
+              {user.userTeachers.map((el) => (<div key={el.id}>{el.name}</div>))}
+            </span>
+          </div>
           <img className={style.photo} src={user.avatar_url} alt="..." />
           <button onClick={logOutHAndler} className={style.registration__signinBtn} type="submit">Выйти</button>
         </div>

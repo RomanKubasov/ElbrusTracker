@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import axios from 'axios';
 import {
   Chart as ChartJS, ArcElement, Tooltip, Legend,
 } from 'chart.js';
@@ -29,6 +30,11 @@ function MyProgress() {
     ],
   };
 
+function MyProgress() {
+  useEffect(() => {
+    axios.get('http://localhost:3001/myprogress').then((res) => console.log(res.data));
+  }, []);
+  
   return (
     <div className={style.chart}>
       <Doughnut data={data} />
