@@ -1,11 +1,34 @@
 /* eslint-disable camelcase */
 const router = require('express').Router();
 const fetch = require('node-fetch');
-const { users } = require('../db/models');
+const {
+  users, groups,
+} = require('../db/models');
 
 const client_id = process.env.CLIENT_ID;
 const redirect_uri = process.env.REDIRECT_URI;
 const client_secret = process.env.CLIENT_SECRET;
+
+const findUser = async (login) => {
+  try {
+    let user = await users.findOne({
+      where: { login },
+      include: [{
+        model: groups,
+        as: 'userStudents',
+      },
+      {
+        model: groups,
+        as: 'userTeachers',
+      }],
+    });
+    user = JSON.parse(JSON.stringify(user));
+    return user;
+  } catch (err) {
+    console.log('ERROR--->', err);
+  }
+  return {};
+};
 
 router.route('/')
   .get(async (req, res) => {
@@ -16,10 +39,10 @@ router.route('/login')
   .post(async (req, res) => {
     const { login, pass } = req.body;
     if (login && pass) {
-      const user = await users.findOne({ where: { login } });
+      const user = await findUser(login);
       if (user) { // && await bycrypt.compare(pass, user.pass)) {
         req.session.user = { login: user.login, id: user.id };
-        return res.json({ login: user.login, id: user.id });
+        return res.json(user);
       }
       return res.sendStatus(401);
     }
@@ -59,8 +82,7 @@ router.route('/authenticate')
       response = await fetch('https://api.github.com/user', { headers: { Authorization: `token ${access_token}` } });
       response = await response.json();
 
-      let user = await users.findOne({ where: { login: response.login } });
-      user = JSON.parse(JSON.stringify(user));
+      const user = await findUser(response.login);
       if (user) {
         const { login, name, avatar_url } = response;
         await users.update({ name, avatar_url }, { where: { login } });
