@@ -6,3 +6,4 @@ export const GET_MYFEEDBACK = 'GET_MYFEEDBACK';
 export const CLEAR_FEEDBACK = 'CLEAR_FEEDBACK';
 export const SET_USER = 'SET_USER';
 export const CLICK_METRIC = 'CLICK_METRIC';
+export const GET_DATA_SOCKET = 'GET_DATA_SOCKET';
