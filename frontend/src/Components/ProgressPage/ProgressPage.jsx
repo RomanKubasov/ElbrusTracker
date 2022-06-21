@@ -13,7 +13,7 @@ function ProgressPage() {
   const [sleepValue, setSleepValue] = useState(0);
   const [resValue, setResValue] = useState(1);
   const navigate = useNavigate();
-  const currentUser = 'ABessonov';
+  const user_id = 5;
 
   async function submitHandler(event) {
     event.preventDefault();
@@ -21,7 +21,7 @@ function ProgressPage() {
       mood,
       performance: resValue,
       sleep: sleepValue,
-      git_login: currentUser,
+      user_id,
     });
     navigate('/myprogress');
 

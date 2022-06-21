@@ -12,6 +12,7 @@ const progressRouter = require('./routes/progressRouter');
 const teamMatesRouter = require('./routes/teamMatesRouter');
 const feedBackRouter = require('./routes/feedBackRouter');
 const myFeedBackRouter = require('./routes/myFeedBackRouter');
+const myProgressRouter = require('./routes/myProgressRouter');
 
 const app = express();
 const PORT = 3001;
@@ -37,6 +38,7 @@ app.use(session(sessionConfig));
 
 app.use('/user', userRouter);
 app.use('/progress', progressRouter);
+app.use('/myprogress', myProgressRouter);
 app.use('/teammates', teamMatesRouter);
 app.use('/feedback', feedBackRouter);
 app.use('/myfeedback', myFeedBackRouter);

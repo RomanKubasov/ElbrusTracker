@@ -8,8 +8,8 @@ import { sendFeedBack, clearFeedBack } from '../../Redux/actions/feedbackAction'
 import style from './FeedBackForm.module.css';
 
 function FeedBackForm() {
-  const currentUserId = 10; // id текущего пользователя
-  const { feedbackTo, feedbackMetrics, feedback } = useSelector((state) => state);
+  const currentUserId = 5; // id текущего пользователя
+  const { feedbackTo, feedbackMetrics } = useSelector((state) => state);
   const dispatch = useDispatch();
   const [inputState, setInputState] = useState({});
 
