@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { userGitLogIn } from '../../Redux/actions/userAction';
+import style from './SignInGit.module.css';
 
 export default function SignInGit() {
   const dispatch = useDispatch();
@@ -28,7 +29,9 @@ export default function SignInGit() {
   return (
     <div>
       <a href={`https://github.com/login/oauth/authorize?scope=user&client_id=${client_id}&redirect_uri=${redirect_uri}`}>
-        <span>Login with GitHub</span>
+        <button className={style.signin__button} type="button">
+          Войдите с помощью GitHub
+        </button>
       </a>
     </div>
   );
