@@ -30,20 +30,22 @@ function App() {
     <div className="App">
       <MyNav />
 
-      <Routes>
-        <Route path="/login" element={<SignInGit />} />
-        <Route path="/" element={<MainPage />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="progress" element={<ProgressPage />} />
-        <Route path="*" element={<Page404 />} />
-        <Route path="myfeedback" element={<MyFeedBack />} />
-        <Route path="feedback" element={<FeedBack />} />
-        <Route path="myprogress" element={<MyProgress />} />
-        <Route path="lostbutton" element={<LostButton />} />
-        <Route path="teachermonitor" element={<TeacherMonitor />} />
-        <Route path="randomizer" element={<Randomizer />} />
-        <Route path="learningprogram" element={<LearningProgram />} />
-      </Routes>
+      <div className="main">
+        <Routes>
+          <Route path="/login" element={<SignInGit />} />
+          <Route path="/" element={<MainPage />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="progress" element={<ProgressPage />} />
+          <Route path="*" element={<Page404 />} />
+          <Route path="myfeedback" element={<MyFeedBack />} />
+          <Route path="feedback" element={<FeedBack />} />
+          <Route path="myprogress" element={<MyProgress />} />
+          <Route path="lostbutton" element={<LostButton />} />
+          <Route path="teachermonitor" element={<TeacherMonitor />} />
+          <Route path="randomizer" element={<Randomizer />} />
+          <Route path="learningprogram" element={<LearningProgram />} />
+        </Routes>
+      </div>
 
       <MyFooter />
     </div>

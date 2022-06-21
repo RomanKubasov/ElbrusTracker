@@ -16,13 +16,14 @@
 .mainPage__card_progress_inner,
 .mainPage__card_feedback_inner {
   position: relative;
+  transition: all .3s linear;
 }
 
 .mainPage__card_progress_inner:hover .mainPage__card_progress_img,
 .mainPage__card_feedback_inner:hover .mainPage__card_feedback_img {
   transform: translate3D(-10px, -10px, 0);
   cursor: pointer;
-  box-shadow: 0 0 10px 3px #322a9c;
+  box-shadow: 0 0 10px 3px #555;
 }
 
 .mainPage__card_progress_inner:hover .mainPage__card_progress_img,
@@ -33,7 +34,7 @@
 .mainPage__card_progress_img,
 .mainPage__card_feedback_img {
   background: linear-gradient(to bottom, #f38181, #fce38a);
-  transition: transform .3s linear;
+  transition: all .3s linear;
 }
 
 .mainPage__card_progress_img img,
@@ -41,7 +42,7 @@
   display: block;
   max-width: 100%;
   height: auto;
-  transition: opacity .1s linear;
+  transition: all .1s linear;
 }
 
 .mainPage__card_progress_info,
