@@ -1,7 +1,8 @@
-import React from 'react';
+/* eslint-disable camelcase */
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { userLogOut } from '../../Redux/actions/userAction';
+import { userLogOut, userGitLogIn } from '../../Redux/actions/userAction';
 import style from './MyNav.module.css';
 
 const Img = 'images/ElbrusBootcamp.jpg';
@@ -15,13 +16,31 @@ function MyNav() {
 
   const navigate = useNavigate();
 
-  const navigateHandlerLogGit = () => {
-    navigate('/login');
-  };
-
   const navigateHandlerLog = () => {
     navigate('/loginwithpass');
   };
+
+  /* login with GitHub */
+  const client_id = process.env.REACT_APP_CLIENT_ID;
+  const redirect_uri = process.env.REACT_APP_REDIRECT_URI;
+
+  useEffect(() => {
+    // After requesting Github access, Github redirects back to your app with a code parameter
+    const url = window.location.href;
+    const hasCode = url.includes('?code=');
+
+    // If Github API returns the code parameter
+    if (hasCode) {
+      const newUrl = url.split('?code=');
+      window.history.pushState({}, null, newUrl[0]);
+
+      const requestData = { code: newUrl[1] };
+
+      // Use code parameter and other parameters to make POST request to proxy_server
+      dispatch(userGitLogIn(requestData));
+    }
+  }, [dispatch]);
+  /* End of login with GitHub */
 
   return (
     <div className={style.header}>
@@ -52,9 +71,13 @@ function MyNav() {
           <button onClick={logOutHAndler} className={style.registration__signinBtn} type="submit">Logout</button>
         </div>
         )}
-        {!user.login && (<button onClick={navigateHandlerLogGit} className={style.registration__signinBtn} type="submit">Login with GitHub</button>)}
+        {!user.login && (
+        <a href={`https://github.com/login/oauth/authorize?scope=user&client_id=${client_id}&redirect_uri=${redirect_uri}`}>
+          <button className={style.registration__signinBtn} type="submit">Login with GitHub</button>
+        </a>
+        )}
         {' '}
-        {!user.login && (<button onClick={navigateHandlerLog} className={style.registration__signinBtn} type="submit">Login</button>)}
+        {!user.login && (<button onClick={() => { navigateHandlerLog(); }} className={style.registration__signinBtn} type="submit">Login</button>)}
       </div>
     </div>
   );
