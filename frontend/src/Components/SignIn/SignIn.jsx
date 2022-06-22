@@ -12,7 +12,6 @@ export default function SignIn() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(inputs);
     dispatch(userLogIn(inputs));
     setInputs({});
   };

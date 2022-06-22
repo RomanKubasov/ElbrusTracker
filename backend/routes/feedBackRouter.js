@@ -10,7 +10,6 @@ router.route('/')
     return res.json(JSON.parse(JSON.stringify(result)));
   })
   .post(async (req, res) => {
-    console.log(req.body);
     const arrReq = req.body;
     const { currentUserId, feedbackTo } = arrReq[arrReq.length - 1];
     const newFeedback = await feedbacks.create({

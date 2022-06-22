@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable default-param-last */
 import {
   SEND_FEEDBACK,

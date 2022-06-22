@@ -470,7 +470,8 @@ module.exports = {
         updatedAt: new Date(),
       }));
     const users = users1.concat(users2);
-    console.log(users);
+
+    // const users = users1;
 
     // const users = [
     //   {
