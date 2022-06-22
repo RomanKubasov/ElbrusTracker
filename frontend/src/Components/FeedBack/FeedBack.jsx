@@ -7,8 +7,8 @@ import style from './FeedBack.module.css';
 
 function FeedBack() {
   const dispatch = useDispatch();
-  const { teamMates, feedbackTo } = useSelector((state) => state);
-  const id = 4; // change for User ID
+  const { teamMates, feedbackTo, user } = useSelector((state) => state);
+  const { id } = user;
 
   useEffect(() => {
     if (!teamMates.length) {

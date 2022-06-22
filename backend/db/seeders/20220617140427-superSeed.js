@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 const fs = require('fs').promises;
+const bcrypt = require('bcrypt');
 const path = require('path');
 
 module.exports = {
@@ -81,13 +82,13 @@ module.exports = {
     ];
     const feedbacks = [
       {
-        from_user_id: 5, to_user_id: 4, team_id: null, createdAt: new Date(), updatedAt: new Date(),
+        from_user_id: 5, to_user_id: 10, team_id: null, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        from_user_id: 6, to_user_id: 4, team_id: null, createdAt: new Date(), updatedAt: new Date(),
+        from_user_id: 23, to_user_id: 10, team_id: null, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        from_user_id: 5, to_user_id: 4, team_id: null, createdAt: new Date(), updatedAt: new Date(),
+        from_user_id: 5, to_user_id: 10, team_id: null, createdAt: new Date(), updatedAt: new Date(),
       },
     ];
     const feedback_items = [
@@ -446,13 +447,13 @@ module.exports = {
 
     const users1 = [
       {
-        name: 'Антон Панферов', login: 'panferovDev', git_id: null, avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
+        name: 'Антон Панферов', login: 'panferovDev', git_id: null, avatar_url: 'https://avatars.githubusercontent.com/u/17177093?v=4', pass: await bcrypt.hash('123', 10), role_id: 1, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        name: 'Адам Балкоев', login: 'balkoev', git_id: null, avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
+        name: 'Адам Балкоев', login: 'balkoev', git_id: null, avatar_url: 'https://avatars.githubusercontent.com/u/22626213?v=4', pass: await bcrypt.hash('123', 10), role_id: 1, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        name: 'Дарсен Унгарлинов', login: 'd4rsen', git_id: null, avatar_url: null, pass: null, role_id: 1, createdAt: new Date(), updatedAt: new Date(),
+        name: 'Дарсен Унгарлинов', login: 'd4rsen', git_id: null, avatar_url: 'https://avatars.githubusercontent.com/u/89852964?v=4', pass: await bcrypt.hash('123', 10), role_id: 1, createdAt: new Date(), updatedAt: new Date(),
       },
     ];
 
@@ -543,55 +544,55 @@ module.exports = {
     ];
     const students_teams = [
       {
-        team_id: 1, user_id: 4, createdAt: new Date(), updatedAt: new Date(),
+        team_id: 1, user_id: 10, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        team_id: 1, user_id: 23, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        team_id: 1, user_id: 24, createdAt: new Date(), updatedAt: new Date(),
       },
       {
         team_id: 1, user_id: 5, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        team_id: 1, user_id: 6, createdAt: new Date(), updatedAt: new Date(),
+        team_id: 1, user_id: 22, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        team_id: 1, user_id: 7, createdAt: new Date(), updatedAt: new Date(),
+        team_id: 2, user_id: 4, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        team_id: 1, user_id: 8, createdAt: new Date(), updatedAt: new Date(),
+        team_id: 2, user_id: 8, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        team_id: 2, user_id: 9, createdAt: new Date(), updatedAt: new Date(),
+        team_id: 2, user_id: 20, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        team_id: 2, user_id: 10, createdAt: new Date(), updatedAt: new Date(),
+        team_id: 2, user_id: 16, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        team_id: 2, user_id: 11, createdAt: new Date(), updatedAt: new Date(),
+        team_id: 3, user_id: 11, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        team_id: 2, user_id: 12, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        team_id: 3, user_id: 13, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        team_id: 3, user_id: 14, createdAt: new Date(), updatedAt: new Date(),
+        team_id: 3, user_id: 12, createdAt: new Date(), updatedAt: new Date(),
       },
       {
         team_id: 3, user_id: 15, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        team_id: 3, user_id: 16, createdAt: new Date(), updatedAt: new Date(),
+        team_id: 3, user_id: 6, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        team_id: 4, user_id: 17, createdAt: new Date(), updatedAt: new Date(),
+        team_id: 4, user_id: 7, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        team_id: 4, user_id: 18, createdAt: new Date(), updatedAt: new Date(),
+        team_id: 4, user_id: 9, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        team_id: 4, user_id: 19, createdAt: new Date(), updatedAt: new Date(),
+        team_id: 4, user_id: 14, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        team_id: 4, user_id: 20, createdAt: new Date(), updatedAt: new Date(),
+        team_id: 4, user_id: 21, createdAt: new Date(), updatedAt: new Date(),
       },
     ];
     await queryInterface.bulkInsert('roles', roles);

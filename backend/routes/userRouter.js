@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 const router = require('express').Router();
+const bcrypt = require('bcrypt');
 const fetch = require('node-fetch');
 const {
   users, groups,
@@ -41,7 +42,7 @@ router.route('/login')
     const { login, pass } = req.body;
     if (login && pass) {
       const user = await findUser(login);
-      if (user) { // && await bycrypt.compare(pass, user.pass)) {
+      if (user && await bcrypt.compare(pass, user.pass)) {
         req.session.user = { login: user.login, id: user.id };
         return res.json(user);
       }

@@ -4,8 +4,8 @@ import { getMyFeedbackRequest } from '../../Redux/actions/myFeedbackAction';
 
 function MyFeedBack() {
   const dispatch = useDispatch();
-  const { myFeedback } = useSelector((state) => state);
-  const id = 5; // change for User ID
+  const { myFeedback, user } = useSelector((state) => state);
+  const { id } = user;
 
   useEffect(() => {
     dispatch(getMyFeedbackRequest(id));

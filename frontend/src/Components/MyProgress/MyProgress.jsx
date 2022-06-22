@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 import {
   Chart as ChartJS, ArcElement, Tooltip, Legend,
 } from 'chart.js';
@@ -9,6 +10,8 @@ import style from './MyProgress.module.css';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function MyProgress() {
+  const { user } = useSelector((state) => state);
+  const { id } = user;
   const data = {
     labels: ['Настроение', 'Сон', 'Результат дня'],
     datasets: [
