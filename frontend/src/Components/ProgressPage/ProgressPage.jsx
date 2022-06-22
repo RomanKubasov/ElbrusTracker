@@ -6,14 +6,16 @@ import {
 } from 'react-icons/cg';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import style from './ProgressPage.module.css';
 
 function ProgressPage() {
+  const { user } = useSelector((state) => state);
   const [mood, setMood] = useState(-1);
   const [sleepValue, setSleepValue] = useState(0);
   const [resValue, setResValue] = useState(1);
   const navigate = useNavigate();
-  const user_id = 5;
+  const user_id = user.id;
 
   async function submitHandler(event) {
     event.preventDefault();
