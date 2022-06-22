@@ -23,7 +23,7 @@ router.route('/')
     );
     userProgress = JSON.parse(JSON.stringify(userProgress));
     const newUserProgress = userProgress.map((el) => ({
-      date: el.date,
+      date: el.date.substring(5, 10),
       mood: el.progress_items.filter((el2) => el2.progress_indicator.indicator === 'mood')[0].value,
       sleep: el.progress_items.filter((el2) => el2.progress_indicator.indicator === 'sleep')[0].value,
       performance: el.progress_items.filter((el2) => el2.progress_indicator.indicator === 'performance')[0].value,
