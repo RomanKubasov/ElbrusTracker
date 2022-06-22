@@ -76,9 +76,15 @@ wss.on('connection', async (ws, request) => {
   }
   map.set(id, ws);
 
+  for (const [id, clientWs] of map) {
+    clientWs.send(JSON.stringify({ students: students.length, lostStudents: lostStudents.length }));
+  }
+
   ws.on('message', (message) => {
+    console.log('MESSAGE RECIEVED');
     let { fromUser, data } = JSON.parse(message);
     if (fromUser === undefined) fromUser = 'гость';
+
     /* lostbutton code */
     switch (data) {
       case 'join': {
@@ -87,6 +93,7 @@ wss.on('connection', async (ws, request) => {
           for (const [id, clientWs] of map) {
             clientWs.send(JSON.stringify({ message: `Пользователь ${fromUser} присоединился`, students: students.length, lostStudents: lostStudents.length }));
           }
+          console.log('JOIN MESSAGE SENT');
         }
         break;
       }
@@ -96,6 +103,7 @@ wss.on('connection', async (ws, request) => {
           for (const [id, clientWs] of map) {
             clientWs.send(JSON.stringify({ message: `Пользователь ${fromUser} отвалился`, students: students.length, lostStudents: lostStudents.length }));
           }
+          console.log('LOST MESSAGE SENT');
         }
         break;
       }
