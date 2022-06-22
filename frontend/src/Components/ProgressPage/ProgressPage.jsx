@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
@@ -13,9 +14,10 @@ function ProgressPage() {
   const { user } = useSelector((state) => state);
   const [mood, setMood] = useState(-1);
   const [sleepValue, setSleepValue] = useState(0);
-  const [resValue, setResValue] = useState(1);
+  const [resValue, setResValue] = useState(0);
   const navigate = useNavigate();
-  const user_id = 5;
+
+  const user_id = user.id;
 
   async function submitHandler(event) {
     event.preventDefault();
@@ -35,7 +37,7 @@ function ProgressPage() {
   }
 
   function moodHandler(index) {
-    setMood(index);
+    setMood(index * 2.5);
   }
 
   function changeHandler(e) {
@@ -63,7 +65,7 @@ function ProgressPage() {
                   <button
                     key="0"
                     onClick={() => moodHandler(index)}
-                    className={mood === index ? `${style.mouth} ${style.yellow}` : style.mouth}
+                    className={mood === index * 2.5 ? `${style.mouth} ${style.yellow}` : style.mouth}
                     type="button"
 
                   >
@@ -78,7 +80,7 @@ function ProgressPage() {
                   <button
                     key="1"
                     onClick={() => moodHandler(index)}
-                    className={mood === index ? `${style.sad} ${style.yellow}` : style.sad}
+                    className={mood === index * 2.5 ? `${style.sad} ${style.yellow}` : style.sad}
                     type="button"
                   >
                     <CgSmileSad />
@@ -92,7 +94,7 @@ function ProgressPage() {
                   <button
                     key="2"
                     onClick={() => moodHandler(index)}
-                    className={mood === index ? `${style.neutral} ${style.yellow}` : style.neutral}
+                    className={mood === index * 2.5 ? `${style.neutral} ${style.yellow}` : style.neutral}
                     type="button"
                   >
                     <CgSmileNeutral />
@@ -106,7 +108,7 @@ function ProgressPage() {
                   <button
                     key="3"
                     onClick={() => moodHandler(index)}
-                    className={mood === index ? `${style.smile} ${style.yellow}` : style.smile}
+                    className={mood === index * 2.5 ? `${style.smile} ${style.yellow}` : style.smile}
                     type="button"
                   >
                     <CgSmile />
@@ -120,7 +122,7 @@ function ProgressPage() {
                   <button
                     key="4"
                     onClick={() => moodHandler(index)}
-                    className={mood === index ? `${style.mouth_pen} ${style.yellow}` : style.mouth_pen}
+                    className={mood === index * 2.5 ? `${style.mouth_pen} ${style.yellow}` : style.mouth_pen}
                     type="button"
                   >
                     <CgSmileMouthOpen />
@@ -145,11 +147,11 @@ function ProgressPage() {
             className={style.range}
             type="range"
             min={0}
-            max={8}
+            max={10}
             value={sleepValue}
             onChange={changeHandler}
           />
-          <span className={style.sleep__control_container__finallyValue}>8+</span>
+          <span className={style.sleep__control_container__finallyValue}>10+</span>
         </div>
       </div>
 
@@ -160,7 +162,7 @@ function ProgressPage() {
           <input
             className={`${style.range} ${style.range__resultOfDay}`}
             type="range"
-            min={1}
+            min={0}
             max={10}
             value={resValue}
             onChange={changeHandlerRes}
