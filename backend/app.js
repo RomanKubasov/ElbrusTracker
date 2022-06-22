@@ -19,7 +19,9 @@ const progressRouter = require('./routes/progressRouter');
 const teamMatesRouter = require('./routes/teamMatesRouter');
 const feedBackRouter = require('./routes/feedBackRouter');
 const myFeedBackRouter = require('./routes/myFeedBackRouter');
+const randomizerRouter = require('./routes/randomizerRouter');
 const myProgressRouter = require('./routes/myProgressRouter');
+
 
 const app = express();
 const PORT = 3001;
@@ -49,6 +51,7 @@ app.use('/myprogress', myProgressRouter);
 app.use('/teammates', teamMatesRouter);
 app.use('/feedback', feedBackRouter);
 app.use('/myfeedback', myFeedBackRouter);
+app.use('/randomize', randomizerRouter);
 
 /* Web Socket Server */
 const map = new Map();

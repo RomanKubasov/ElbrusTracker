@@ -33,10 +33,6 @@ function MyProgress() {
     ],
   };
 
-  useEffect(() => {
-    axios.get('http://localhost:3001/myprogress').then((res) => console.log(res.data));
-  }, []);
-
   return (
     <div className={style.chart}>
       <Doughnut data={data} />

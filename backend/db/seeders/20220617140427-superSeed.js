@@ -456,6 +456,7 @@ module.exports = {
         name: 'Дарсен Унгарлинов', login: 'd4rsen', git_id: null, avatar_url: 'https://avatars.githubusercontent.com/u/89852964?v=4', pass: await bcrypt.hash('123', 10), role_id: 1, createdAt: new Date(), updatedAt: new Date(),
       },
     ];
+
     const users2 = (await fs.readFile(path.join(process.env.PWD, 'db/seeders/students.txt'), 'utf-8'))
       .split('\n').filter((el) => el !== '')
       .map((el) => el.split('\t'))
@@ -470,6 +471,7 @@ module.exports = {
         updatedAt: new Date(),
       }));
     const users = users1.concat(users2);
+
     // const users = users1;
 
     // const users = [
