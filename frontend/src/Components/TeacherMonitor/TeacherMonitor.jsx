@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useWSContext } from '../Context/Context';
 import { getDataSocket } from '../../Redux/actions/dataSocketAction';
+import style from './TeacherMonitor.module.css';
 
 function TeacherMonitor() {
   const dispatch = useDispatch();
