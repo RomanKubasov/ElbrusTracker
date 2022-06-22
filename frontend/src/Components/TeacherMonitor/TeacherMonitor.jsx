@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useWSContext } from '../Context/Context';
 import { getDataSocket } from '../../Redux/actions/dataSocketAction';
 
 function TeacherMonitor() {
   const dispatch = useDispatch();
-  const [socket, setSocket] = useState(new WebSocket(`${process.env.REACT_APP_SOCKET_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}`));
+  const { socket } = useWSContext();
   const { user, dataSocket } = useSelector((state) => state);
 
   function join() {
@@ -13,6 +14,10 @@ function TeacherMonitor() {
 
   function lost() {
     socket.send(JSON.stringify({ fromUser: user.name, data: 'lost' }));
+  }
+
+  function like() {
+    socket.send(JSON.stringify({ fromUser: user.name, data: 'like' }));
   }
 
   socket.onmessage = (event) => {
@@ -24,7 +29,8 @@ function TeacherMonitor() {
     <>
       <button type="button" onClick={() => { join(); }}>Я на лекции</button>
       <button type="button" onClick={() => { lost(); }}>Я отвалился</button>
-      {/* {dataSocket.message && (
+      <button type="button" onClick={() => { like(); }}>Like</button>
+      {dataSocket.message && (
       <>
         <div>
           Присоединилось:
@@ -34,9 +40,13 @@ function TeacherMonitor() {
           Отвалилось:
           {dataSocket.lostStudents}
         </div>
+        <div>
+          Likes:
+          {dataSocket.likes}
+        </div>
         <div>{dataSocket.message}</div>
       </>
-      )} */}
+      )}
     </>
   );
 }

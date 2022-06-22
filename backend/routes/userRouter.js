@@ -5,7 +5,6 @@ const fetch = require('node-fetch');
 const {
   users, groups,
 } = require('../db/models');
-const bycrypt = require('bcrypt');
 
 const client_id = process.env.CLIENT_ID;
 const redirect_uri = process.env.REDIRECT_URI;
@@ -43,7 +42,7 @@ router.route('/login')
     if (login && pass) {
       const user = await findUser(login);
       if (user && await bcrypt.compare(pass, user.pass)) {
-        req.session.user = { login: user.login, id: user.id };
+        req.session.user = user;
         return res.json(user);
       }
       return res.sendStatus(401);
@@ -64,7 +63,6 @@ router.route('/logout')
     req.session.destroy();
     res.clearCookie('sid').sendStatus(200);
   });
-
 
 router.route('/authenticate')
   .post(async (req, res) => {
@@ -98,6 +96,5 @@ router.route('/authenticate')
       return res.status(400).json(error);
     }
   });
-
 
 module.exports = router;
