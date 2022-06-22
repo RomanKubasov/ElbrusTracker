@@ -25,26 +25,7 @@ function TeacherMonitor() {
     <div className={style.teacher__container}>
       <button className={style.teacher__buttonLection} type="button" onClick={() => { join(); }}>Я на лекции!</button>
       <button className={style.teacher__buttonFell} type="button" onClick={() => { lost(); }}>Я отвалился!</button>
-      {dataSocket.message && (
-    <>
-      <button type="button" onClick={() => { join(); }}>Я на лекции</button>
-      <button type="button" onClick={() => { lost(); }}>Я отвалился</button>
-      {/* {dataSocket.message && (
-      <>
-        <div>
-          Присоединилось:
-          {dataSocket.students}
-        </div>
-        <div>
-          Отвалилось:
-          {dataSocket.lostStudents}
-        </div>
-        <div>{dataSocket.message}</div>
-      </>
-      )}
     </div>
-      )} */}
-    </>
   );
 }
 
