@@ -9,7 +9,7 @@ function MyFeedBack() {
 
   useEffect(() => {
     dispatch(getMyFeedbackRequest(id));
-  }, []);
+  }, [id]);
 
   /* this try-catch code to be sure that user has at least one feedback */
   let type1metricExists;
