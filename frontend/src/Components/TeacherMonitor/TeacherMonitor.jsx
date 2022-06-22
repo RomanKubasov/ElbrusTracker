@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDataSocket } from '../../Redux/actions/dataSocketAction';
+import style from './TeacherMonitor.module.css';
 
 function TeacherMonitor() {
   const dispatch = useDispatch();
@@ -21,6 +22,10 @@ function TeacherMonitor() {
   };
 
   return (
+    <div className={style.teacher__container}>
+      <button className={style.teacher__buttonLection} type="button" onClick={() => { join(); }}>Я на лекции!</button>
+      <button className={style.teacher__buttonFell} type="button" onClick={() => { lost(); }}>Я отвалился!</button>
+      {dataSocket.message && (
     <>
       <button type="button" onClick={() => { join(); }}>Я на лекции</button>
       <button type="button" onClick={() => { lost(); }}>Я отвалился</button>
@@ -36,6 +41,8 @@ function TeacherMonitor() {
         </div>
         <div>{dataSocket.message}</div>
       </>
+      )}
+    </div>
       )} */}
     </>
   );
