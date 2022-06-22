@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { setFeedBackToUserId } from '../../Redux/actions/feedbackToAction';
 import { actionClickMetric, getFeedBackMetricsRequest } from '../../Redux/actions/feedbackMetricsAction';
-import { sendFeedBack, clearFeedBack } from '../../Redux/actions/feedbackAction';
+import { clearFeedBack } from '../../Redux/actions/feedbackAction';
 import style from './FeedBackForm.module.css';
 
 function FeedBackForm() {
