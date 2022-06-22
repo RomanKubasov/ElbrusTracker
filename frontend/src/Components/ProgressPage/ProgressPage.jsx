@@ -15,7 +15,7 @@ function ProgressPage() {
   const [sleepValue, setSleepValue] = useState(0);
   const [resValue, setResValue] = useState(1);
   const navigate = useNavigate();
-  const user_id = user.id;
+  const user_id = 5;
 
   async function submitHandler(event) {
     event.preventDefault();

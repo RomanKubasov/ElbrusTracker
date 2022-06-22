@@ -27,7 +27,7 @@ function MyProgress() {
 
   useEffect(() => {
     axios.get('http://localhost:3001/myprogress').then((res) => setDataProgress(res.data));
-  }, [dataProgress]);
+  }, []);
 
   const options = {
     responsive: true,
