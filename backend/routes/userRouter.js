@@ -4,6 +4,7 @@ const fetch = require('node-fetch');
 const {
   users, groups,
 } = require('../db/models');
+const bycrypt = require('bcrypt');
 
 const client_id = process.env.CLIENT_ID;
 const redirect_uri = process.env.REDIRECT_URI;
@@ -63,6 +64,7 @@ router.route('/logout')
     res.clearCookie('sid').sendStatus(200);
   });
 
+
 router.route('/authenticate')
   .post(async (req, res) => {
     const { code } = req.body;
@@ -95,5 +97,6 @@ router.route('/authenticate')
       return res.status(400).json(error);
     }
   });
+
 
 module.exports = router;
