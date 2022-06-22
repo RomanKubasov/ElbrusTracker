@@ -26,7 +26,7 @@ function MyProgress() {
   const [dataProgress, setDataProgress] = useState([{ mood: 0, sleep: 0, performance: 0 }]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/myprogress').then((res) => setDataProgress(res.data));
+    axios.get(`${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/myprogress`).then((res) => setDataProgress(res.data));
   }, []);
 
   const options = {
