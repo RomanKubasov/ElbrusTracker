@@ -17,7 +17,6 @@ function ProgressPage() {
   const [resValue, setResValue] = useState(0);
   const navigate = useNavigate();
   const user_id = user.id;
-  console.log(mood, sleepValue, resValue);
   async function submitHandler(event) {
     event.preventDefault();
     if (mood === -1) {
