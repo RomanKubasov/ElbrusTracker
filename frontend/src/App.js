@@ -34,7 +34,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<SignInGit />} />
           <Route path="/" element={<MainPage />} />
-          <Route path="/signin" element={<SignIn />} />
+          <Route path="/loginwithpass" element={<SignIn />} />
           <Route path="progress" element={<ProgressPage />} />
           <Route path="*" element={<Page404 />} />
           <Route path="myfeedback" element={<MyFeedBack />} />

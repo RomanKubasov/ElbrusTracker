@@ -22,7 +22,7 @@ function ProgressPage() {
     if (mood === -1) {
       alert('Выберите настроение');
     } else {
-      const response = await axios.post('http://localhost:3001/progress', {
+      const response = await axios.post(`${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/progress`, {
         mood,
         performance: resValue,
         sleep: sleepValue,

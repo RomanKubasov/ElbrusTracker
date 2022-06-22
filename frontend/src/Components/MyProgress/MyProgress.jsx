@@ -34,7 +34,7 @@ function MyProgress() {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:3001/myprogress').then((res) => console.log(res.data));
+    axios.get(`${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/myprogress`).then((res) => console.log(res.data));
   }, []);
 
   return (
