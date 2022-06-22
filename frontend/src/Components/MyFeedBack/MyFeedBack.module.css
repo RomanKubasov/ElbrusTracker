@@ -1,0 +1,108 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Фидбек */
+.myFeedBack__container {
+  padding: 20px;
+}
+
+.myFeedBack__total,
+.myFeedBack__totalPeople {
+  text-transform: uppercase;
+  background-color: #3733995c;
+  border-radius: 5px;
+  margin: 10px auto;
+  padding: 5px;
+  width: 800px;
+}
+
+.myFeedBack__totalPeople {
+  margin-bottom: 40px;
+}
+
+.myFeedBack__totalInner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.myFeedBack__total span,
+.myFeedBack__totalPeople span {
+  font: 700 1.3em/1 "Oswald", sans-serif;
+  letter-spacing: 0;
+  padding: .25em 0 .325em;
+  display: block;
+  margin-right: 30px;
+  text-shadow: 0 0 80px rgba(255,255,255, .5);
+
+  background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: animate 120s linear infinite;
+
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-backface-visibility: hidden;
+}
+
+@keyframes animate {
+  0% { 
+    background-position: 0% 50%; 
+  }
+  100% { 
+    background-position: 100% 50%; 
+  }
+}
+
+/* Описание */
+.myFeedBack__block,
+.myFeedBack__block2,
+.myFeedBack__block3 {
+  padding: 10px;
+  --angle: 0deg;
+  height: 150px;
+  border: 8px solid;
+  /* border-image: linear-gradient(var(--angle), red, yellow, lime, aqua, blue, magenta) 1; */
+  border-image: linear-gradient(var(--angle), #fff, #000) 1;
+  animation: 10s rotate linear infinite;
+  margin-bottom: 50px;
+}
+
+.myFeedBack__block2 {
+  /* border-image: linear-gradient(var(--angle), aqua, blue, magenta, yellow, lime, red) 1; */
+  border-image: linear-gradient(var(--angle), blue, red) 1;
+}
+
+.myFeedBack__block3 {
+  border-image: linear-gradient(var(--angle), #00ffff, #00ff00, #eaea28) 1;
+}
+
+.myFeedBack__title {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px;
+  text-decoration: underline;
+}
+
+.myFeedBack__description {
+  margin-left: 30px;
+  font-weight: 500;
+  font-style: italic;
+}
+
+
+@keyframes rotate {
+	to {
+		--angle: 360deg;
+	}
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
