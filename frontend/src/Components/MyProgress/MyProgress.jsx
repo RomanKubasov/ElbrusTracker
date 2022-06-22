@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -42,6 +43,9 @@ function MyProgress() {
   };
 
   const labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
+  const { user } = useSelector((state) => state);
+  const { id } = user;
 
   const data = {
     labels,

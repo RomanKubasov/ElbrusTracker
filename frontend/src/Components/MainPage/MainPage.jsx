@@ -1,25 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { getDataSocket } from '../../Redux/actions/dataSocketAction';
 import style from './MainPage.module.css';
 import imgProgress from '../../images/progress_img.jpg';
 import imgFeedback from '../../images/feedback.jpg';
 import imgTeacherMonitor from '../../images/teacher_monitor.jpg';
 
 function MainPage() {
-  const dispatch = useDispatch();
-  const [socket, setSocket] = useState(new WebSocket('ws://localhost:3001'));
-  const { user } = useSelector((state) => state);
-
-  function join() {
-    socket.send(JSON.stringify({ fromUser: user.name, data: 'join' }));
-  }
-
-  socket.onmessage = (event) => {
-    dispatch(getDataSocket(JSON.parse(event.data)));
-  };
-
   return (
     <div className={style.mainPage}>
 
@@ -46,7 +32,7 @@ function MainPage() {
       </div>
 
       <div className={style.mainPage__card_feedback}>
-        <Link to="/teachermonitor" onClick={() => join()} className={style.mainPage__card_feedback_inner}>
+        <Link to="/teachermonitor" className={style.mainPage__card_feedback_inner}>
           <div className={style.mainPage__card_feedback_img}>
             <img src={imgTeacherMonitor} alt="Feedback_Image" />
           </div>
