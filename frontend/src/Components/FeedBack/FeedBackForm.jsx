@@ -8,8 +8,8 @@ import { clearFeedBack } from '../../Redux/actions/feedbackAction';
 import style from './FeedBackForm.module.css';
 
 function FeedBackForm() {
-  const currentUserId = 5; // id текущего пользователя
-  const { feedbackTo, feedbackMetrics } = useSelector((state) => state);
+  const { feedbackTo, feedbackMetrics, user } = useSelector((state) => state);
+  const { id } = user;
   const dispatch = useDispatch();
   const [inputState, setInputState] = useState({});
 
@@ -24,9 +24,9 @@ function FeedBackForm() {
     const feedbackToBack = feedbackMetrics.filter((el) => el.clicked === true);
     const feedbackToBackPrepared = feedbackToBack.map((el) => ({ id: el.id, value: true }));
     if (Object.keys(inputState).length !== 0) {
-      response = await axios.post('http://localhost:3001/feedback', [...feedbackToBackPrepared, inputState, { currentUserId, feedbackTo }]);
+      response = await axios.post(`${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/feedback`, [...feedbackToBackPrepared, inputState, { id, feedbackTo: feedbackTo.id }]);
     } else {
-      response = await axios.post('http://localhost:3001/feedback', [...feedbackToBackPrepared, { currentUserId, feedbackTo }]);
+      response = await axios.post(`${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/feedback`, [...feedbackToBackPrepared, { id, feedbackTo: feedbackTo.id }]);
     }
     if (response.status === 200) {
       setInputState({});
@@ -44,9 +44,9 @@ function FeedBackForm() {
   return (
     <>
       <div className={style.feedbackForm__block}>
-        <h3 className={style.feedbackForm__titles}>Вы оцениваете:</h3>
+        <h3 className={style.feedbackForm__titles}>Оцениваемый студент:</h3>
         {' '}
-        {feedbackTo}
+        {feedbackTo.name}
 
         <h3 className={style.feedbackForm__titles}>Сильные стороны:</h3>
         <div>

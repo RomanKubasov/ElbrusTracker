@@ -8,7 +8,7 @@ export const getMyFeedback = (value) => ({
 });
 
 export const getMyFeedbackRequest = (id) => async (dispatch) => {
-  const res = await fetch('http://localhost:3001/myfeedback', {
+  const res = await fetch(`${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/myfeedback`, {
     method: 'post',
     headers: {
       'Content-Type': 'application/json;charset=utf-8',

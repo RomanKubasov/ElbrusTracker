@@ -4,12 +4,13 @@ import { getMyFeedbackRequest } from '../../Redux/actions/myFeedbackAction';
 
 function MyFeedBack() {
   const dispatch = useDispatch();
-  const { myFeedback } = useSelector((state) => state);
-  const id = 5; // change for User ID
+  const { myFeedback, user } = useSelector((state) => state);
+  const { id } = user;
 
   useEffect(() => {
+    console.log('ID---->', user);
     dispatch(getMyFeedbackRequest(id));
-  }, []);
+  }, [id]);
 
   /* this try-catch code to be sure that user has at least one feedback */
   let type1metricExists;

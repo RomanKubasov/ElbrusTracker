@@ -13,7 +13,7 @@
 }
 
 .header__logo img {
-  display: block;
+  display: inline-block;
   width: 23%;
   cursor: pointer;
 }

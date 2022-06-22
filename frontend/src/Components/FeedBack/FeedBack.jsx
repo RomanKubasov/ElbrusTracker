@@ -7,14 +7,14 @@ import style from './FeedBack.module.css';
 
 function FeedBack() {
   const dispatch = useDispatch();
-  const { teamMates, feedbackTo } = useSelector((state) => state);
-  const id = 4; // change for User ID
+  const { teamMates, feedbackTo, user } = useSelector((state) => state);
+  const { id } = user;
 
   useEffect(() => {
     if (!teamMates.length) {
       dispatch(getTeamMatesRequest(id));
     }
-  }, []);
+  }, [id]);
 
   return (
     <>
@@ -22,10 +22,10 @@ function FeedBack() {
         {teamMates.map((el) => (
           <div
             className={style.users}
-            onClick={() => { dispatch(setFeedBackToUserId(el.id)); }}
+            onClick={() => { dispatch(setFeedBackToUserId({ id: el.id, name: el.name })); }}
             key={el.id}
           >
-            {el.login}
+            {el.name}
           </div>
         ))}
       </div>
