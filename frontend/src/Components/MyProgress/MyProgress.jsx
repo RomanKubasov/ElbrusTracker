@@ -42,11 +42,10 @@ function MyProgress() {
     },
   };
 
-  const labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  const labels = dataProgress.map((el) => el.date);
 
   const { user } = useSelector((state) => state);
   const { id } = user;
-
   const data = {
     labels,
     datasets: [
