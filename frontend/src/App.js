@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
-import {
-  Routes,
-  Route,
-} from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { checkUser } from './Redux/actions/userAction';
 import MainPage from './Components/MainPage/MainPage';
 import MyFooter from './Components/MyFooter/MyFooter';
@@ -19,9 +16,9 @@ import TeacherMonitor from './Components/TeacherMonitor/TeacherMonitor';
 import Randomizer from './Components/Randomizer/Randomizer';
 import LearningProgram from './Components/LearningProgram/LearningProgram';
 import SignInGit from './Components/SignIn/SignInGit';
-import Spinner from './Components/Spinner/Spinner';
 
 function App() {
+  const { user } = useSelector((state) => state);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(checkUser());
@@ -33,9 +30,7 @@ function App() {
 
       <div className="main">
         <Routes>
-          <Route path="/login" element={<SignInGit />} />
           <Route path="/" element={<MainPage />} />
-          <Route path="/signin" element={<SignIn />} />
           <Route path="progress" element={<ProgressPage />} />
           <Route path="*" element={<Page404 />} />
           <Route path="myfeedback" element={<MyFeedBack />} />
@@ -45,7 +40,9 @@ function App() {
           <Route path="teachermonitor" element={<TeacherMonitor />} />
           <Route path="randomizer" element={<Randomizer />} />
           <Route path="learningprogram" element={<LearningProgram />} />
-          <Route path="spinner" element={<Spinner />} />
+          <Route path="/login" element={<Navigate to="/" />} />
+          <Route path="/loginwithgithub" element={<SignInGit />} />
+          <Route path="/loginwithpass" element={<SignIn />} />
         </Routes>
       </div>
 

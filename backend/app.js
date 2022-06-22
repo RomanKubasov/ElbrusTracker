@@ -22,7 +22,6 @@ const myFeedBackRouter = require('./routes/myFeedBackRouter');
 const randomizerRouter = require('./routes/randomizerRouter');
 const myProgressRouter = require('./routes/myProgressRouter');
 
-
 const app = express();
 const PORT = 3001;
 
@@ -79,34 +78,26 @@ wss.on('connection', async (ws, request) => {
   }
   map.set(id, ws);
 
-  for (const [id, clientWs] of map) {
-    clientWs.send(JSON.stringify({ students: students.length, lostStudents: lostStudents.length }));
-  }
-
   ws.on('message', (message) => {
-    console.log('MESSAGE RECIEVED');
     let { fromUser, data } = JSON.parse(message);
     if (fromUser === undefined) fromUser = 'гость';
 
     /* lostbutton code */
     switch (data) {
       case 'join': {
-        if (!students.includes(fromUser)) {
-          students.push(fromUser);
-          for (const [id, clientWs] of map) {
-            clientWs.send(JSON.stringify({ message: `Пользователь ${fromUser} присоединился`, students: students.length, lostStudents: lostStudents.length }));
-          }
-          console.log('JOIN MESSAGE SENT');
+        students.push(fromUser);
+        console.log('USERS--->', students);
+        for (const [id, clientWs] of map) {
+          clientWs.send(JSON.stringify({ message: `Пользователь ${fromUser} присоединился` })); // , students: students.length, lostStudents: lostStudents.length }));
         }
         break;
       }
       case 'lost': {
-        if (!lostStudents.includes(fromUser)) {
-          lostStudents.push(fromUser);
-          for (const [id, clientWs] of map) {
-            clientWs.send(JSON.stringify({ message: `Пользователь ${fromUser} отвалился`, students: students.length, lostStudents: lostStudents.length }));
-          }
-          console.log('LOST MESSAGE SENT');
+        lostStudents.push(fromUser);
+        console.log('LOST USERS--->', lostStudents);
+        for (const [id, clientWs] of map) {
+          clientWs.send(JSON.stringify({ message: `Пользователь ${fromUser} отвалился` })); // , students: students.length, lostStudents: lostStudents.length }));
+          console.log('LOST RESPONSE SENT');
         }
         break;
       }

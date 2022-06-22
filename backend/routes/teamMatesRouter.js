@@ -7,12 +7,12 @@ const router = express.Router();
 const findTeamMates = (arrTeams, id) => {
   let teamMates = [];
   for (let i = 0; i < arrTeams.length; i++) {
-    const currentTeam = arrTeams[i].teamStudentTeams.map((el) => ({ id: el.id, login: el.login }));
+    const currentTeam = arrTeams[i].teamStudentTeams.map((el) => ({ id: el.id, name: el.name }));
     if (currentTeam.map((el) => el.id).includes(id, 0)) {
       teamMates = [...teamMates, ...currentTeam];
     }
   }
-  return [...new Set(teamMates)];
+  return [...new Set(teamMates.filter((el) => (el.id !== id)))];
 };
 
 router.route('/')
