@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import style from './SignIn.module.css';
 import { userLogIn } from '../../Redux/actions/userAction';
 
 export default function SignIn() {
+  const { user } = useSelector((state) => state);
   const [inputs, setInputs] = useState({});
   const dispatch = useDispatch();
   const inputHandler = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
+  const navigate = useNavigate();
+
+  if (user.id) {
+    navigate('/');
+  }
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -19,7 +27,7 @@ export default function SignIn() {
   return (
     <form method="post" className={style.form} onSubmit={submitHandler}>
       <div className={style.signin__card}>
-        <label className={style.signin__card_label} htmlFor="exampleLogin">Введите Login</label>
+        <label className={style.signin__card_label} htmlFor="exampleLogin">Enter Login</label>
         <input
           className={style.signin__card_input}
           required="required"
@@ -29,7 +37,7 @@ export default function SignIn() {
           value={inputs.login || ''}
           onChange={inputHandler}
         />
-        <label className={style.signin__card_label} htmlFor="examplePassword">Введите пароль</label>
+        <label className={style.signin__card_label} htmlFor="examplePassword">Enter password</label>
         <input
           className={style.signin__card_input}
           required="required"
@@ -42,7 +50,7 @@ export default function SignIn() {
       </div>
 
       <button className={style.signin__form_button} type="submit">
-        Войти
+        Login
       </button>
 
     </form>

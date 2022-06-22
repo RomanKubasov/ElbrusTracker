@@ -2,13 +2,13 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation, Navigate } from 'react-router-dom';
 
-function AuthRouter({ children }) {
+function AuthTeacherRouter({ children }) {
   const { user } = useSelector((state) => state);
   const location = useLocation();
-  if (user.id) {
+  if (user.role_id === 1) {
     return children;
   }
-  return <Navigate to="/loginwithpass" state={{ from: location }} replace />;
+  return <Navigate to="/" state={{ from: location }} replace />;
 }
 
-export default AuthRouter;
+export default AuthTeacherRouter;
