@@ -17,13 +17,17 @@ function ProgressPage() {
 
   async function submitHandler(event) {
     event.preventDefault();
-    const response = await axios.post('http://localhost:3001/progress', {
-      mood,
-      performance: resValue,
-      sleep: sleepValue,
-      user_id,
-    });
-    navigate('/myprogress');
+    if (mood === -1) {
+      alert('Выберите настроение');
+    } else {
+      const response = await axios.post('http://localhost:3001/progress', {
+        mood,
+        performance: resValue,
+        sleep: sleepValue,
+        user_id,
+      });
+      navigate('/myprogress');
+    }
 
     return null;
   }

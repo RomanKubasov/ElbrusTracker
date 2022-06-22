@@ -12,6 +12,7 @@ export default function SignInGit() {
     // After requesting Github access, Github redirects back to your app with a code parameter
     const url = window.location.href;
     const hasCode = url.includes('?code=');
+    console.log('client id      ', process.env.REACT_APP_CLIENT_ID);
 
     // If Github API returns the code parameter
     if (hasCode) {
