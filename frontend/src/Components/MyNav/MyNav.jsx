@@ -15,8 +15,12 @@ function MyNav() {
 
   const navigate = useNavigate();
 
-  const navigateHandlerLog = () => {
+  const navigateHandlerLogGit = () => {
     navigate('/login');
+  };
+
+  const navigateHandlerLog = () => {
+    navigate('/loginwithpass');
   };
 
   return (
@@ -45,10 +49,12 @@ function MyNav() {
             </span>
           </div>
           <img className={style.photo} src={user.avatar_url} alt="..." />
-          <button onClick={logOutHAndler} className={style.registration__signinBtn} type="submit">Выйти</button>
+          <button onClick={logOutHAndler} className={style.registration__signinBtn} type="submit">Logout</button>
         </div>
         )}
-        {!user.login && (<button onClick={navigateHandlerLog} className={style.registration__signinBtn} type="submit">Войти</button>)}
+        {!user.login && (<button onClick={navigateHandlerLogGit} className={style.registration__signinBtn} type="submit">Login with GitHub</button>)}
+        {' '}
+        {!user.login && (<button onClick={navigateHandlerLog} className={style.registration__signinBtn} type="submit">Login</button>)}
       </div>
     </div>
   );

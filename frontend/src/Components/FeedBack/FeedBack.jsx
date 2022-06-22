@@ -14,7 +14,7 @@ function FeedBack() {
     if (!teamMates.length) {
       dispatch(getTeamMatesRequest(id));
     }
-  }, []);
+  }, [id]);
 
   return (
     <>
@@ -22,10 +22,10 @@ function FeedBack() {
         {teamMates.map((el) => (
           <div
             className={style.users}
-            onClick={() => { dispatch(setFeedBackToUserId(el.id)); }}
+            onClick={() => { dispatch(setFeedBackToUserId({ id: el.id, name: el.name })); }}
             key={el.id}
           >
-            {el.login}
+            {el.name}
           </div>
         ))}
       </div>

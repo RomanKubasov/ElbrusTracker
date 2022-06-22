@@ -6,8 +6,8 @@ import style from './SignInGit.module.css';
 
 export default function SignInGit() {
   const dispatch = useDispatch();
-  const client_id = process.env.REACT_APP_CLIENT_ID ?? '58ed0551023e8ee6b590';
-  const redirect_uri = process.env.REACT_APP_REDIRECT_URI ?? 'http://localhost:3000/login';
+  const client_id = process.env.REACT_APP_CLIENT_ID;
+  const redirect_uri = process.env.REACT_APP_REDIRECT_URI;
 
   useEffect(() => {
     // After requesting Github access, Github redirects back to your app with a code parameter
