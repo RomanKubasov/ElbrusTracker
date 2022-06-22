@@ -2,7 +2,6 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const fetch = require('node-fetch');
-const bycrypt = require('bcrypt');
 const {
   users, groups,
 } = require('../db/models');
