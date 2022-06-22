@@ -8,7 +8,7 @@ export const getTeamMates = (value) => ({
 });
 
 export const getTeamMatesRequest = (id) => async (dispatch) => {
-  const res = await fetch('http://localhost:3001/teammates', {
+  const res = await fetch(`${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/teammates`, {
     method: 'post',
     headers: {
       'Content-Type': 'application/json;charset=utf-8',

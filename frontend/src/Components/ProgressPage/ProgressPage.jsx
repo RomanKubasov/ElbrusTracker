@@ -16,13 +16,15 @@ function ProgressPage() {
   const [sleepValue, setSleepValue] = useState(0);
   const [resValue, setResValue] = useState(0);
   const navigate = useNavigate();
+
   const user_id = user.id;
+
   async function submitHandler(event) {
     event.preventDefault();
     if (mood === -1) {
       alert('Выберите настроение');
     } else {
-      const response = await axios.post('http://localhost:3001/progress', {
+      const response = await axios.post(`${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/progress`, {
         mood,
         performance: resValue,
         sleep: sleepValue,

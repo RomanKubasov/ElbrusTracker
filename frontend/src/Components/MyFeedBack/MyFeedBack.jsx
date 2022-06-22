@@ -8,6 +8,7 @@ function MyFeedBack() {
   const { id } = user;
 
   useEffect(() => {
+    console.log('ID---->', user);
     dispatch(getMyFeedbackRequest(id));
   }, [id]);
 

@@ -11,9 +11,9 @@ router.route('/')
   })
   .post(async (req, res) => {
     const arrReq = req.body;
-    const { currentUserId, feedbackTo } = arrReq[arrReq.length - 1];
+    const { id, feedbackTo } = arrReq[arrReq.length - 1];
     const newFeedback = await feedbacks.create({
-      from_user_id: currentUserId,
+      from_user_id: id,
       to_user_id: feedbackTo,
       team_id: null,
       createdAt: new Date(),
@@ -31,5 +31,3 @@ router.route('/')
     return res.json();
   });
 module.exports = router;
-
-// [{id:1,value:"true"},{id:5,value:"true"},{id:19,value:"aaaaa"},{currentUserId:10,feedbackTo:4}]

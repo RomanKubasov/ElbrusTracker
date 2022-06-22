@@ -19,6 +19,7 @@ import TeacherMonitor from './Components/TeacherMonitor/TeacherMonitor';
 import Randomizer from './Components/Randomizer/Randomizer';
 import LearningProgram from './Components/LearningProgram/LearningProgram';
 import SignInGit from './Components/SignIn/SignInGit';
+import Spinner from './Components/Spinner/Spinner';
 
 function App() {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<SignInGit />} />
           <Route path="/" element={<MainPage />} />
-          <Route path="/signin" element={<SignIn />} />
+          <Route path="/loginwithpass" element={<SignIn />} />
           <Route path="progress" element={<ProgressPage />} />
           <Route path="*" element={<Page404 />} />
           <Route path="myfeedback" element={<MyFeedBack />} />
@@ -44,6 +45,7 @@ function App() {
           <Route path="teachermonitor" element={<TeacherMonitor />} />
           <Route path="randomizer" element={<Randomizer />} />
           <Route path="learningprogram" element={<LearningProgram />} />
+          <Route path="spinner" element={<Spinner />} />
         </Routes>
       </div>
 

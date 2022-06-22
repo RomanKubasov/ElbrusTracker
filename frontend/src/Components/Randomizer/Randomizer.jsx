@@ -1,6 +1,7 @@
-// import React from 'react';
+//import React from 'react';
 // import axios from 'axios';
 // import { useSelector } from 'react-redux';
+
 
 // function Randomizer() {
 //   const { user } = useSelector((state) => state);
@@ -23,7 +24,14 @@
 //       <button type="button" onClick={submitHandler}>Generate</button>
 //     </>
 
-//   );
-// }
 
-// export default Randomizer;
+
+
+
+
+  //);
+//}
+
+//export default Randomizer;
+
+// .post(`${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/randomizer`
