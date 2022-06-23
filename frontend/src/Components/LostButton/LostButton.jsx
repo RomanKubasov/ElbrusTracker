@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useWSContext } from '../Context/Context';
-import { getDataSocket } from '../../Redux/actions/dataSocketAction';
 import {
   Chart as ChartJS, ArcElement, Tooltip, Legend,
 } from 'chart.js';
@@ -10,6 +8,8 @@ import {
 } from 'react-icons/bi';
 import { Doughnut } from 'react-chartjs-2';
 import axios from 'axios';
+import { getDataSocket } from '../../Redux/actions/dataSocketAction';
+import { useWSContext } from '../Context/Context';
 import style from './LostButton.module.css';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -33,10 +33,11 @@ function LostButton() {
   function like() {
     socket.send(JSON.stringify({ fromUser: user.name, data: 'like' }));
   }
-  
+
   socket.onmessage = (event) => {
     console.log('DATA--->', JSON.parse(event.data));
     dispatch(getDataSocket(JSON.parse(event.data)));
+  };
 
   const data = {
     labels: ['Присоединилось', 'Отвалилось'],
@@ -58,20 +59,26 @@ function LostButton() {
         borderWidth: 1,
       },
     ],
+  };
 
   return (
     <>
-     {status.join && <button type="button" onClick={() => { join(); }}>Я на лекции</button>}
+      {status.join && <button type="button" onClick={() => { join(); }}>Я на лекции</button>}
       {status.lost && <button type="button" onClick={() => { lost(); }}>Я отвалился</button>}
-      <button className={style.button__likes} type="button" onClick={() => { like(); }}>
-        <BiLike />
-      </button>
+
+      <div>{dataSocket.message}</div>
 
       <div className={style.chart}>
         <Doughnut data={data} />
       </div>
 
-        <div>{dataSocket.message}</div>
+      <button
+        className={style.button__likes}
+        type="button"
+        onClick={() => { like(); }}
+      >
+        <BiLike />
+      </button>
     </>
   );
 }
