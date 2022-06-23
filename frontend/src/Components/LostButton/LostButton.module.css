@@ -19,17 +19,18 @@
   color: #ffff00;
 }
 
-/* .teacher__container {
+li {
+  list-style: none;
+}
+
+.lostButton__container {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 400px;
-  width: 600px;
-  margin: 0 auto;
 }
 
-.teacher__buttonLection,
-.teacher__buttonFell {
+.lostButton__lection,
+.lostButton__fell {
   font-size: 20px;
   color: #ffff0095;
   padding: 10px 50px;
@@ -39,22 +40,22 @@
   transition: all .3s linear;
 }
 
-.teacher__buttonLection {
+.lostButton__lection {
   background-color: #07c51176;
 }
 
-.teacher__buttonLection:hover {
+.lostButton__lection:hover {
   border: 2px dashed #fff;
   color: #ffff00;
   background-color: #07c511;
 }
 
-.teacher__buttonFell {
+.lostButton__fell {
   background-color: #ef232386;
 }
 
-.teacher__buttonFell:hover {
+.lostButton__fell:hover {
   border: 2px dashed #fff;
   color: #ffff00;
   background-color: #ef2323;
-} */
+}
