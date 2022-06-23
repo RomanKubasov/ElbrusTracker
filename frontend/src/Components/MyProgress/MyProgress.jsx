@@ -28,9 +28,15 @@ function MyProgress() {
   const [dataProgress, setDataProgress] = useState([{ mood: 0, sleep: 0, performance: 0 }]);
 
   useEffect(() => {
-    axios.post(`${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/myprogress`, { id }).then((res) => setDataProgress(res.data));
+    try {
+      if (user.id) {
+        axios.post(`${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/myprogress`, { id }).then((res) => setDataProgress(res.data));
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }, [user]);
-  console.log(dataProgress);
+
   const options = {
     responsive: true,
     plugins: {
