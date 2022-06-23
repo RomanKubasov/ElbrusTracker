@@ -39,10 +39,10 @@ router.route('/')
     for (let i = 1; i <= teamCount; i += 1) {
       stringTeams += `team ${i}: ${teamsArr[i - 1]}\n`;
     }
-    console.log(stringTeams);
-    // await axios.post('https://hooks.slack.com/services/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', {
-    //   text: JSON.stringify(teamsArr),
-    // });
+    // console.log(stringTeams);
+    await axios.post('https://hooks.slack.com/services/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', {
+      text: stringTeams,
+    });
     res.json(teamsArr);
   });
 
