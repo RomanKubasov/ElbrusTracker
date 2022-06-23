@@ -3,9 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setIsLoading } from '../../Redux/actions/isLoadingAction';
 import style from './MainPage.module.css';
-import imgProgress from '../../images/progress_img.jpg';
-import imgFeedback from '../../images/feedback.jpg';
-import imgTeacherMonitor from '../../images/teacher_monitor.jpg';
 import Spinner from '../Spinner/Spinner';
 
 function MainPage() {
@@ -26,18 +23,16 @@ function MainPage() {
           <div className={style.mainPage__card_progress}>
             <Link to="/progress" className={style.mainPage__card_progress_inner}>
               <div className={style.mainPage__card_progress_img}>
-                <img src={imgProgress} alt="Progress_Image" />
+              <img src="images/progress.svg" alt="Progress_Image" />
               </div>
             </Link>
             <div className={style.mainPage__card_progress_info}>
               <p>Мой прогресс</p>
-            </div>
-          </div>
 
           <div className={style.mainPage__card_feedback}>
             <Link to="/feedback" className={style.mainPage__card_feedback_inner}>
               <div className={style.mainPage__card_feedback_img}>
-                <img src={imgFeedback} alt="Feedback_Image" />
+              <img src="images/rating1.svg" alt="Feedback_Image" />
               </div>
             </Link>
             <div className={style.mainPage__card_feedback_info}>
@@ -50,7 +45,7 @@ function MainPage() {
         <div className={style.mainPage__card_feedback}>
           <Link to="/lostbutton" className={style.mainPage__card_feedback_inner}>
             <div className={style.mainPage__card_feedback_img}>
-              <img src={imgTeacherMonitor} alt="Feedback_Image" />
+              <img src="images/lection.svg" alt="Feedback_Image" />
             </div>
           </Link>
           <div className={style.mainPage__card_feedback_info}>
