@@ -82,13 +82,13 @@ module.exports = {
     ];
     const feedbacks = [
       {
-        from_user_id: 5, to_user_id: 10, team_id: null, createdAt: new Date(), updatedAt: new Date(),
+        from_user_id: 5, to_user_id: 22, team_id: null, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        from_user_id: 23, to_user_id: 10, team_id: null, createdAt: new Date(), updatedAt: new Date(),
+        from_user_id: 23, to_user_id: 22, team_id: null, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        from_user_id: 5, to_user_id: 10, team_id: null, createdAt: new Date(), updatedAt: new Date(),
+        from_user_id: 5, to_user_id: 22, team_id: null, createdAt: new Date(), updatedAt: new Date(),
       },
     ];
     const feedback_items = [
