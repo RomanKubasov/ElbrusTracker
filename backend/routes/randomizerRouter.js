@@ -1,3 +1,4 @@
+
 const router = require('express').Router();
 
 const { users } = require('../db/models');
@@ -9,3 +10,4 @@ router.route('/')
   });
 
 module.exports = router;
+
