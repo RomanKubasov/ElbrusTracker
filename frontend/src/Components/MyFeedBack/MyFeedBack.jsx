@@ -11,7 +11,7 @@ function MyFeedBack() {
   useEffect(() => {
     console.log('ID---->', user);
     dispatch(getMyFeedbackRequest(id));
-  }, [id]);
+  }, [user]);
 
   /* this try-catch code to be sure that user has at least one feedback */
   let type1metricExists;

@@ -15,6 +15,7 @@ import LostButton from './Components/LostButton/LostButton';
 import TeacherMonitor from './Components/TeacherMonitor/TeacherMonitor';
 import Randomizer from './Components/Randomizer/Randomizer';
 import SignInGit from './Components/SignIn/SignInGit';
+import Menu from './Components/Menu/Menu';
 // import AuthRouter from './Components/AuthRouter/AuthRouter';
 // import AuthTeacherRouter from './Components/AuthTeacherRouter/AuthTeacherRouter';
 // import AuthStudentRouter from './Components/AuthStudentRouter/AuthStudentRouter';
@@ -28,6 +29,7 @@ function App() {
   return (
     <div className="App">
       <MyNav />
+      <Menu />
 
       <div className="main">
         <Routes>

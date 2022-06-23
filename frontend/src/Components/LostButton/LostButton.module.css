@@ -1,0 +1,20 @@
+.chart {
+  width: 400px;
+  margin: 30px auto;
+}
+
+.button__likes {
+  display: block;
+  margin: 10px auto;
+  padding: 5px;
+  border: none;
+  background-color: transparent;
+  font-size: 40px;
+  color: #333;
+  cursor: pointer;
+  transition: color .3s ease-out;
+}
+
+.button__likes:hover {
+  color: #ffff00;
+}

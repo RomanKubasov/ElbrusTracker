@@ -9,6 +9,7 @@
 .feedbackForm__titles {
   font-size: 24px;
   color: #780cd6;
+  margin-bottom: 15px;
 }
 
 .feedbackForm__name {
