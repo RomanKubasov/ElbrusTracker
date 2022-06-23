@@ -5,11 +5,11 @@ const {
 } = require('../db/models');
 
 router.route('/')
-  .get(async (req, res) => {
-    const user_id = 5;
+  .post(async (req, res) => {
+    const { id } = req.body;
     let userProgress = await progresses.findAll(
       {
-        where: { user_id },
+        where: { id },
         attributes: ['date'],
         include: {
           model: progress_items,
