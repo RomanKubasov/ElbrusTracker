@@ -6,12 +6,14 @@ import style from './MyFeedBack.module.css';
 function MyFeedBack() {
   const dispatch = useDispatch();
   const { myFeedback, user } = useSelector((state) => state);
-  const { id } = user;
 
   useEffect(() => {
-    console.log('ID---->', user);
-    dispatch(getMyFeedbackRequest(id));
-  }, [id]);
+    if (user) {
+      const { id } = user;
+      dispatch(getMyFeedbackRequest(id));
+      console.log('USER---->', user);
+    }
+  }, [user]);
 
   /* this try-catch code to be sure that user has at least one feedback */
   let type1metricExists;

@@ -32,7 +32,7 @@ function MainPage() {
       </div>
 
       <div className={style.mainPage__card_feedback}>
-        <Link to="/teachermonitor" className={style.mainPage__card_feedback_inner}>
+        <Link to="/lostbutton" className={style.mainPage__card_feedback_inner}>
           <div className={style.mainPage__card_feedback_img}>
             <img src={imgTeacherMonitor} alt="Feedback_Image" />
           </div>

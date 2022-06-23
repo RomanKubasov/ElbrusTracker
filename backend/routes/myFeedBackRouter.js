@@ -46,23 +46,28 @@ const countFeedbackMetrics = (arrayFeedbacks) => {
 
 router.route('/')
   .post(async (req, res, next) => {
-    const { id } = req.body;
-    let result = await feedbacks.findAll({
-      where: { to_user_id: id },
-      include: {
-        model: feedback_items,
-        attributes: ['metric_id', 'value'],
+    try {
+      const { id } = req.body;
+      let result = await feedbacks.findAll({
+        where: { to_user_id: id },
         include: {
-          model: feedback_metrics,
-          attributes: ['metric', 'type_id'],
+          model: feedback_items,
+          attributes: ['metric_id', 'value'],
+          include: {
+            model: feedback_metrics,
+            attributes: ['metric', 'type_id'],
+          },
         },
-      },
-    });
-    result = JSON.parse(JSON.stringify(result));
-    const countFeedbacks = result.length;
-    const countRespondents = [...new Set(result.map((el) => el.from_user_id))].length;
-    const allFeedbacks = countFeedbackMetrics(allFeedbackMetrics(result));
-    return res.json({ countFeedbacks, countRespondents, allFeedbacks });
+      });
+      result = JSON.parse(JSON.stringify(result));
+      const countFeedbacks = result.length;
+      const countRespondents = [...new Set(result.map((el) => el.from_user_id))].length;
+      const allFeedbacks = countFeedbackMetrics(allFeedbackMetrics(result));
+      return res.json({ countFeedbacks, countRespondents, allFeedbacks });
+    } catch (err) {
+      console.log('ERROR--->', err);
+      return res.sendStatus(500);
+    }
   });
 
 module.exports = router;

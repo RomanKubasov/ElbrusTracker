@@ -12,7 +12,6 @@ import MyFeedBack from './Components/MyFeedBack/MyFeedBack';
 import FeedBack from './Components/FeedBack/FeedBack';
 import MyProgress from './Components/MyProgress/MyProgress';
 import LostButton from './Components/LostButton/LostButton';
-import TeacherMonitor from './Components/TeacherMonitor/TeacherMonitor';
 import Randomizer from './Components/Randomizer/Randomizer';
 import SignInGit from './Components/SignIn/SignInGit';
 // import AuthRouter from './Components/AuthRouter/AuthRouter';
@@ -36,7 +35,6 @@ function App() {
           <Route path="myfeedback" element={<MyFeedBack />} />
           <Route path="feedback" element={<FeedBack />} />
           <Route path="lostbutton" element={<LostButton />} />
-          <Route path="teachermonitor" element={<TeacherMonitor />} />
           <Route path="randomizer" element={<Randomizer />} />
           <Route path="/" element={<MainPage />} />
           <Route path="*" element={<Page404 />} />
