@@ -42,7 +42,7 @@ router.route('/login')
     if (login && pass) {
       const user = await findUser(login);
       if (user && await bcrypt.compare(pass, user.pass)) {
-        req.session.user = { login: user.login, id: user.id };
+        req.session.user = user;
         return res.json(user);
       }
       return res.sendStatus(401);

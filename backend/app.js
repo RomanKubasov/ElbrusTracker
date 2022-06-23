@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable prefer-const */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-unused-vars */
@@ -14,6 +15,7 @@ const { WebSocketServer } = require('ws');
 const path = require('path');
 const http = require('http');
 
+const { from } = require('form-data');
 const userRouter = require('./routes/userRouter');
 const progressRouter = require('./routes/progressRouter');
 const teamMatesRouter = require('./routes/teamMatesRouter');
@@ -61,6 +63,7 @@ const wss = new WebSocketServer({ clientTracking: false, noServer: true });
 /* lostbutton code */
 let students = [];
 let lostStudents = [];
+let likes = 0;
 /* end of lostbutton code */
 
 server.on('upgrade', (request, socket, head) => {
@@ -85,19 +88,33 @@ wss.on('connection', async (ws, request) => {
     /* lostbutton code */
     switch (data) {
       case 'join': {
-        students.push(fromUser);
-        console.log('USERS--->', students);
-        for (const [id, clientWs] of map) {
-          clientWs.send(JSON.stringify({ message: `Пользователь ${fromUser} присоединился` })); // , students: students.length, lostStudents: lostStudents.length }));
+        if (!students.includes(fromUser)) {
+          students.push(fromUser);
+          for (const [id, clientWs] of map) {
+            clientWs.send(JSON.stringify({
+              message: `Пользователь ${fromUser} присоединился`, students: students.length, lostStudents: lostStudents.length, likes,
+            }));
+          }
         }
         break;
       }
       case 'lost': {
-        lostStudents.push(fromUser);
-        console.log('LOST USERS--->', lostStudents);
+        if (!lostStudents.includes(fromUser)) {
+          lostStudents.push(fromUser);
+          for (const [id, clientWs] of map) {
+            clientWs.send(JSON.stringify({
+              message: `Пользователь ${fromUser} отвалился`, students: students.length, lostStudents: lostStudents.length, likes,
+            }));
+          }
+        }
+        break;
+      }
+      case 'like': {
+        likes++;
         for (const [id, clientWs] of map) {
-          clientWs.send(JSON.stringify({ message: `Пользователь ${fromUser} отвалился` })); // , students: students.length, lostStudents: lostStudents.length }));
-          console.log('LOST RESPONSE SENT');
+          clientWs.send(JSON.stringify({
+            message: `Пользователь ${fromUser} Like`, students: students.length, lostStudents: lostStudents.length, likes,
+          }));
         }
         break;
       }

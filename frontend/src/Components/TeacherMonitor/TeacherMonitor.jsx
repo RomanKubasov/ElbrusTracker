@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useWSContext } from '../Context/Context';
 import { getDataSocket } from '../../Redux/actions/dataSocketAction';
 import style from './TeacherMonitor.module.css';
 
 function TeacherMonitor() {
   const dispatch = useDispatch();
-  const [socket, setSocket] = useState(new WebSocket(`${process.env.REACT_APP_SOCKET_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}`));
+  const { socket } = useWSContext();
   const { user, dataSocket } = useSelector((state) => state);
 
   function join() {
@@ -16,16 +17,38 @@ function TeacherMonitor() {
     socket.send(JSON.stringify({ fromUser: user.name, data: 'lost' }));
   }
 
+  function like() {
+    socket.send(JSON.stringify({ fromUser: user.name, data: 'like' }));
+  }
+
   socket.onmessage = (event) => {
     console.log('DATA--->', JSON.parse(event.data));
     dispatch(getDataSocket(JSON.parse(event.data)));
   };
 
   return (
-    <div className={style.teacher__container}>
-      <button className={style.teacher__buttonLection} type="button" onClick={() => { join(); }}>Я на лекции!</button>
-      <button className={style.teacher__buttonFell} type="button" onClick={() => { lost(); }}>Я отвалился!</button>
-    </div>
+    <>
+      <button type="button" onClick={() => { join(); }}>Я на лекции</button>
+      <button type="button" onClick={() => { lost(); }}>Я отвалился</button>
+      <button type="button" onClick={() => { like(); }}>Like</button>
+      {dataSocket.message && (
+      <>
+        <div>
+          Присоединилось:
+          {dataSocket.students}
+        </div>
+        <div>
+          Отвалилось:
+          {dataSocket.lostStudents}
+        </div>
+        <div>
+          Likes:
+          {dataSocket.likes}
+        </div>
+        <div>{dataSocket.message}</div>
+      </>
+      )}
+    </>
   );
 }
 
