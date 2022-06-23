@@ -67,12 +67,12 @@ function LostButton() {
   }, []);
 
   return (
-      (isLoading.status) ? (<Spinner />) : (
-     <>
-      <div className={style.lostButton__container}>
-        {status.join && <button className={style.lostButton__lection} type="button" onClick={() => { join(); }}>Я на лекции</button>}
-        {status.lost && <button className={style.lostButton__fell} type="button" onClick={() => { lost(); }}>Я отвалился</button>}
-      </div>
+    (isLoading.status) ? (<Spinner />) : (
+      <>
+        <div className={style.lostButton__container}>
+          {status.join && <button className={style.lostButton__lection} type="button" onClick={() => { join(); }}>Я на лекции</button>}
+          {status.lost && <button className={style.lostButton__fell} type="button" onClick={() => { lost(); }}>Я отвалился</button>}
+        </div>
 
         <div>{dataSocket.message}</div>
 

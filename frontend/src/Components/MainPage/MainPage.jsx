@@ -23,16 +23,18 @@ function MainPage() {
           <div className={style.mainPage__card_progress}>
             <Link to="/progress" className={style.mainPage__card_progress_inner}>
               <div className={style.mainPage__card_progress_img}>
-              <img src="images/progress.svg" alt="Progress_Image" />
+                <img src="images/progress.svg" alt="Progress_Image" />
               </div>
             </Link>
             <div className={style.mainPage__card_progress_info}>
               <p>Мой прогресс</p>
+            </div>
+          </div>
 
           <div className={style.mainPage__card_feedback}>
             <Link to="/feedback" className={style.mainPage__card_feedback_inner}>
               <div className={style.mainPage__card_feedback_img}>
-              <img src="images/rating1.svg" alt="Feedback_Image" />
+                <img src="images/rating2.svg" alt="Feedback_Image" />
               </div>
             </Link>
             <div className={style.mainPage__card_feedback_info}>
@@ -41,6 +43,7 @@ function MainPage() {
           </div>
         </>
         )}
+
         {(user.role_id) && (
         <div className={style.mainPage__card_feedback}>
           <Link to="/lostbutton" className={style.mainPage__card_feedback_inner}>
