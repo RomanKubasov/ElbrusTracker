@@ -89,5 +89,5 @@
 Алдар Ондар	https://github.com/exalonv	Песцы 2022	
 Марат Есиев	https://github.com/MaratEs777	Песцы 2022	
 Иван Шульгин	https://github.com/zzzookie	Песцы 2022	
-Виолетта Вишневская	https://github.com/vilyaush	Песцы 2022	
-Влад Степанов	https://github.com/wlladislaw	Песцы 2022	
+Виолетта Вишневская	https://github.com/vilyaush	Песцы 2022		
+Влад Степанов	https://github.com/wlladislaw	Песцы 2022

@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useWSContext } from '../Context/Context';
+import { getDataSocket } from '../../Redux/actions/dataSocketAction';
 import {
   Chart as ChartJS, ArcElement, Tooltip, Legend,
 } from 'chart.js';
@@ -12,11 +15,28 @@ import style from './LostButton.module.css';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function LostButton() {
-  const [dataProgress, setDataProgress] = useState([{ mood: -1, sleep: -1, performance: -1 }]);
+  const dispatch = useDispatch();
+  const { socket } = useWSContext();
+  const { user, dataSocket } = useSelector((state) => state);
+  const [status, setStatus] = useState({ join: true, lost: false });
 
-  useEffect(() => {
-    axios.get('http://localhost:3001/myprogress').then((res) => setDataProgress(res.data));
-  }, []);
+  function join() {
+    socket.send(JSON.stringify({ fromUser: user.name, data: 'join' }));
+    setStatus({ join: false, lost: true });
+  }
+
+  function lost() {
+    socket.send(JSON.stringify({ fromUser: user.name, data: 'lost' }));
+    setStatus({ ...status, lost: false });
+  }
+
+  function like() {
+    socket.send(JSON.stringify({ fromUser: user.name, data: 'like' }));
+  }
+  
+  socket.onmessage = (event) => {
+    console.log('DATA--->', JSON.parse(event.data));
+    dispatch(getDataSocket(JSON.parse(event.data)));
 
   const data = {
     labels: ['Присоединилось', 'Отвалилось'],
@@ -24,8 +44,8 @@ function LostButton() {
       {
         label: '# of Votes',
         data: [
-          dataProgress[dataProgress.length - 1].mood,
-          dataProgress[dataProgress.length - 1].sleep,
+          dataSocket.students,
+          dataSocket.lostStudents,
         ],
         backgroundColor: [
           'rgba(54, 162, 235, 0.7)',
@@ -38,16 +58,20 @@ function LostButton() {
         borderWidth: 1,
       },
     ],
-  };
 
   return (
     <>
+     {status.join && <button type="button" onClick={() => { join(); }}>Я на лекции</button>}
+      {status.lost && <button type="button" onClick={() => { lost(); }}>Я отвалился</button>}
+      <button className={style.button__likes} type="button" onClick={() => { like(); }}>
+        <BiLike />
+      </button>
+
       <div className={style.chart}>
         <Doughnut data={data} />
       </div>
-      <button className={style.button__likes} type="button">
-        <BiLike />
-      </button>
+
+        <div>{dataSocket.message}</div>
     </>
   );
 }
