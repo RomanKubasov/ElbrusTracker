@@ -45,7 +45,7 @@ function LostButton() {
       {
         label: '# of Votes',
         data: [
-          dataSocket.students,
+          dataSocket.students - dataSocket.lostStudents,
           dataSocket.lostStudents,
         ],
         backgroundColor: [
