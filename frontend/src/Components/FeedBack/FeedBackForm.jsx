@@ -6,9 +6,12 @@ import { setFeedBackToUserId } from '../../Redux/actions/feedbackToAction';
 import { actionClickMetric, getFeedBackMetricsRequest } from '../../Redux/actions/feedbackMetricsAction';
 import { clearFeedBack } from '../../Redux/actions/feedbackAction';
 import style from './FeedBackForm.module.css';
+import { showMessage } from '../../Redux/actions/feedbackMessageAction';
 
 function FeedBackForm() {
-  const { feedbackTo, feedbackMetrics, user } = useSelector((state) => state);
+  const {
+    feedbackTo, feedbackMetrics, user,
+  } = useSelector((state) => state);
   const { id } = user;
   const dispatch = useDispatch();
   const [inputState, setInputState] = useState({});
@@ -32,12 +35,14 @@ function FeedBackForm() {
       setInputState({});
       dispatch(clearFeedBack());
       dispatch(setFeedBackToUserId(null));
+      dispatch(showMessage(true));
     }
   }
   function exitHandler() {
     setInputState({});
     dispatch(clearFeedBack());
     dispatch(setFeedBackToUserId(null));
+    dispatch(showMessage(false));
   }
   useEffect(() => { dispatch(getFeedBackMetricsRequest()); }, []);
   useEffect(() => { dispatch(getFeedBackMetricsRequest()); }, [feedbackTo]);
@@ -79,7 +84,7 @@ function FeedBackForm() {
       </div>
 
       <div className={style.feedBackForm__buttons}>
-        <button className={style.feedBackForm__buttons__logout} type="button" onClick={() => { dispatch(setFeedBackToUserId(null)); }}>Выйти</button>
+        <button className={style.feedBackForm__buttons__logout} type="button" onClick={exitHandler}>Выйти</button>
         <button className={style.feedBackForm__buttons__send} type="button" onClick={submitHandler}>Отправить</button>
       </div>
     </>
