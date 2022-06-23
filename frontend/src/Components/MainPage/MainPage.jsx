@@ -26,7 +26,7 @@ function MainPage() {
         <div className={style.mainPage__card_feedback}>
           <Link to="/feedback" className={style.mainPage__card_feedback_inner}>
             <div className={style.mainPage__card_feedback_img}>
-              <img src="images/rating1.svg" alt="Feedback_Image" />
+              <img src="images/rating2.svg" alt="Feedback_Image" />
             </div>
           </Link>
           <div className={style.mainPage__card_feedback_info}>

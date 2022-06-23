@@ -19,6 +19,50 @@
   color: #ffff00;
 }
 
+li {
+  list-style: none;
+}
+
+.lostButton__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* height: 400px; */
+  /* width: 600px; */
+  /* margin: 0 auto; */
+}
+
+.lostButton__lection,
+.lostButton__fell {
+  font-size: 20px;
+  color: #ffff0095;
+  padding: 10px 50px;
+  border-radius: 5px;
+  border: 2px dashed transparent;
+  cursor: pointer;
+  transition: all .3s linear;
+}
+
+.lostButton__lection {
+  background-color: #07c51176;
+}
+
+.lostButton__lection:hover {
+  border: 2px dashed #fff;
+  color: #ffff00;
+  background-color: #07c511;
+}
+
+.lostButton__fell {
+  background-color: #ef232386;
+}
+
+.lostButton__fell:hover {
+  border: 2px dashed #fff;
+  color: #ffff00;
+  background-color: #ef2323;
+}
+
 /* .teacher__container {
   display: flex;
   justify-content: space-around;
