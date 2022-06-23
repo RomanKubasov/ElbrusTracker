@@ -66,7 +66,6 @@ function MyProgress() {
       },
     ],
   };
-
   return (
     <div className={style.chart}>
       <Bar options={options} data={data} />
