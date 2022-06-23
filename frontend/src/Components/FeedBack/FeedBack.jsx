@@ -19,6 +19,10 @@ function FeedBack() {
     }
   }, [id]);
 
+  useEffect(() => {
+    dispatch(showMessage(false));
+  }, []);
+
   function clickHandler(el) {
     dispatch(setFeedBackToUserId({ id: el.id, name: el.name }));
     dispatch(showMessage(false));
