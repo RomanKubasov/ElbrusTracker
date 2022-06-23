@@ -7,17 +7,18 @@ import {
   BiLike,
 } from 'react-icons/bi';
 import { Doughnut } from 'react-chartjs-2';
-import axios from 'axios';
 import { getDataSocket } from '../../Redux/actions/dataSocketAction';
 import { useWSContext } from '../Context/Context';
+import { setIsLoading } from '../../Redux/actions/isLoadingAction';
 import style from './LostButton.module.css';
+import Spinner from '../Spinner/Spinner';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function LostButton() {
   const dispatch = useDispatch();
   const { socket } = useWSContext();
-  const { user, dataSocket } = useSelector((state) => state);
+  const { user, dataSocket, isLoading } = useSelector((state) => state);
   const [status, setStatus] = useState({ join: true, lost: false });
 
   function join() {
@@ -35,7 +36,6 @@ function LostButton() {
   }
 
   socket.onmessage = (event) => {
-    console.log('DATA--->', JSON.parse(event.data));
     dispatch(getDataSocket(JSON.parse(event.data)));
   };
 
@@ -61,25 +61,34 @@ function LostButton() {
     ],
   };
 
+  useEffect(() => {
+    dispatch(setIsLoading({ ...isLoading, status: true }));
+    setTimeout(() => dispatch(setIsLoading({ ...isLoading, status: false })), 2000);
+  }, []);
+
   return (
-    <>
-      {status.join && <button type="button" onClick={() => { join(); }}>Я на лекции</button>}
-      {status.lost && <button type="button" onClick={() => { lost(); }}>Я отвалился</button>}
+    (isLoading.status) ? (<Spinner />) : (
+      <>
+        {status.join && <button type="button" onClick={() => { join(); }}>Я на лекции</button>}
+        {status.lost && <button type="button" onClick={() => { lost(); }}>Я отвалился</button>}
 
-      <div>{dataSocket.message}</div>
+        <div>{dataSocket.message}</div>
 
-      <div className={style.chart}>
-        <Doughnut data={data} />
-      </div>
+        {!dataSocket.students ? (<div>Пока никто не присоединился</div>) : (
+          <div className={style.chart}>
+            <Doughnut data={data} />
+          </div>
+        )}
 
-      <button
-        className={style.button__likes}
-        type="button"
-        onClick={() => { like(); }}
-      >
-        <BiLike />
-      </button>
-    </>
+        <button
+          className={style.button__likes}
+          type="button"
+          onClick={() => { like(); }}
+        >
+          <BiLike />
+        </button>
+      </>
+    )
   );
 }
 
