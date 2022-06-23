@@ -231,7 +231,7 @@ module.exports = {
         user_id: 24, group_id: 1, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        user_id: 25, group_id: 1, createdAt: new Date(), updatedAt: new Date(),
+        user_id: 25, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
       },
       {
         user_id: 26, group_id: 3, createdAt: new Date(), updatedAt: new Date(),
