@@ -52,7 +52,7 @@ app.use('/myprogress', myProgressRouter);
 app.use('/teammates', teamMatesRouter);
 app.use('/feedback', feedBackRouter);
 app.use('/myfeedback', myFeedBackRouter);
-app.use('/randomize', randomizerRouter);
+app.use('/randomizer', randomizerRouter);
 
 /* Web Socket Server */
 const map = new Map();
