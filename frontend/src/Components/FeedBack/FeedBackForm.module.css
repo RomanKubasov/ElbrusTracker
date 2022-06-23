@@ -11,6 +11,14 @@
   color: #780cd6;
 }
 
+.feedbackForm__name {
+  margin: 10px;
+  border: 1px solid #999;
+  padding: 5px 20px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 .feedBackForm__button {
   padding: 10px;
   border: none;

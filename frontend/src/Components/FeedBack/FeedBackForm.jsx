@@ -45,8 +45,9 @@ function FeedBackForm() {
     <>
       <div className={style.feedbackForm__block}>
         <h3 className={style.feedbackForm__titles}>Оцениваемый студент:</h3>
-        {' '}
-        {feedbackTo.name}
+        <span className={style.feedbackForm__name}>
+          {feedbackTo.name}
+        </span>
 
         <h3 className={style.feedbackForm__titles}>Сильные стороны:</h3>
         <div>
