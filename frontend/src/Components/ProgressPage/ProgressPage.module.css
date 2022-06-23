@@ -21,7 +21,7 @@
   flex-direction: column;
   width: 60%;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .mood {
@@ -33,6 +33,7 @@
 .resultOfDay__title {
   font-size: 24px;
   color: #333;
+  margin-bottom: 30px;
 }
 
 .mood__emojis,

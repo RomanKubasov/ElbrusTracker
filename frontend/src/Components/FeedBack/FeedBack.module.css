@@ -1,12 +1,13 @@
 .users__block {
   width: 400px;
-  height: 130px;
-  margin: 30px auto;
+  height: auto;
+  margin: 50px auto 20px;
   text-align: center;
   padding: 10px 15px;
   overflow: scroll;
   background-color: #dcf1f74a;
   border-radius: 10px;
+  line-height: 2;
 }
 
 .users {
