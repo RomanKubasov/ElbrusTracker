@@ -20,6 +20,7 @@ function LostButton() {
   const { socket } = useWSContext();
   const { user, dataSocket, isLoading } = useSelector((state) => state);
   const [status, setStatus] = useState({ join: true, lost: false });
+  const [textStyle, setTextStyle] = useState(style.textfix);
 
   function join() {
     socket.send(JSON.stringify({ fromUser: user.name, data: 'join' }));
@@ -37,6 +38,7 @@ function LostButton() {
 
   socket.onmessage = (event) => {
     dispatch(getDataSocket(JSON.parse(event.data)));
+    setTextStyle(style.textfix);
   };
 
   const data = {
@@ -66,6 +68,10 @@ function LostButton() {
     setTimeout(() => dispatch(setIsLoading({ ...isLoading, status: false })), 2000);
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => setTextStyle(style.text), 2000);
+  }, [dataSocket]);
+
   return (
     (isLoading.status) ? (<Spinner />) : (
       <>
@@ -74,7 +80,7 @@ function LostButton() {
           {status.lost && <button className={style.lostButton__fell} type="button" onClick={() => { lost(); }}>Я отвалился</button>}
         </div>
 
-        <div>{dataSocket.message}</div>
+        {dataSocket.message && <div className={textStyle}>{dataSocket.message}</div>}
 
         {!dataSocket.students ? (<div>Пока никто не присоединился</div>) : (
           <div className={style.chart}>
