@@ -25,7 +25,7 @@ router.route('/')
     let randomCount = 0;
     let x = 0;
     const { length } = studentNames;
-    const studentsOnlyNames = studentNames.map((el) => el.name);
+    const studentsOnlyNames = studentNames.map((el) => ` ${el.name}`);
     for (let i = 0; i < length; i += 1) {
       randomCount = Math.round(Math.random(0, 1) * (studentsOnlyNames.length - 1));
       deletedEl = studentsOnlyNames.splice(randomCount, 1)[0];
@@ -37,10 +37,9 @@ router.route('/')
     }
     let stringTeams = '';
     for (let i = 1; i <= teamCount; i += 1) {
-      stringTeams += `team ${i}: ${teamsArr[i - 1]}\n`;
+      stringTeams += `team ${i}:${teamsArr[i - 1]}\n`;
     }
-    // console.log(stringTeams);
-    await axios.post('https://hooks.slack.com/services/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', {
+    await axios.post(process.env.BOT_WEBHOOK, {
       text: stringTeams,
     });
     res.json(teamsArr);
