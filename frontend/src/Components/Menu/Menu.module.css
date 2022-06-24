@@ -1,7 +1,3 @@
-.menu__container {
-  margin: 20px;
-}
-
 .menu__list {
   display: flex;
   justify-content: center;
@@ -9,7 +5,7 @@
   flex-wrap: wrap;
   list-style: none;
   background-color: #b2afd5ba;
-  width: max-content;
+  width: 100%;
   margin: 0 auto;
   padding: 10px 30px;
   border-radius: 8px;
