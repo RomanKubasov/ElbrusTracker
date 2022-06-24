@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import style from './Randomizer.module.css';
 
 function Randomizer() {
   const { user } = useSelector((state) => state);
@@ -49,26 +50,40 @@ function Randomizer() {
     (user.userTeachers)
       ? (
         <>
-          <div>Рандомизатор (здесь вы можете создавать случайные команды студентов)</div>
-          <div>Укажите группу</div>
-          <select onChange={selectHandler}>
-            {randomizeGroupName
-              ? user.userTeachers.map((el, index) => (
-                <option
-                  value={el.name}
-                  key={index}
-                >
-                  {el.name}
-                </option>
-              ))
-              : null}
-          </select>
-          <div>Введите количество человек в одной команде</div>
-          <input onChange={inputHandler} />
-          <button type="button" onClick={submitHandler}>Generate</button>
-          {randomizerMessage ? <div>Команды сформированы и отправлены в Slack!</div> : null}
+          <div className={style.randomizer__container}>
+            <div className={style.randomizer__title}>
+              <span>Рандомайзер</span>
+              {' '}
+              (
+              <i>здесь вы можете создавать случайные команды студентов</i>
+              )
+            </div>
+            <div className={style.randomizer__group}>Укажите группу</div>
+            <select className={style.randomizer__select} onChange={selectHandler}>
+              {randomizeGroupName
+                ? user.userTeachers.map((el, index) => (
+                  <option
+                    value={el.name}
+                    key={index}
+                  >
+                    {el.name}
+                  </option>
+                ))
+                : null}
+            </select>
+            <div className={style.randomizer__countTeam}>
+              Введите количество человек в одной команде
+            </div>
+            <input className={style.randomizer__input} onChange={inputHandler} />
+            <button className={style.randomizer__button} type="button" onClick={submitHandler}>Generate</button>
+          </div>
+          {randomizerMessage ? (
+            <div className={style.randomizer__slack}>
+              Команды сформированы и отправлены в Slack!
+            </div>
+          ) : null}
         </>
-      ) : <div>Авторизуйтесь, чтобы получить доступ</div>
+      ) : <div className={style.randomizer__slack}>Авторизуйтесь, чтобы получить доступ</div>
 
   );
 }
