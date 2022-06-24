@@ -16,6 +16,7 @@
   display: inline-block;
   width: 23%;
   cursor: pointer;
+  min-width: 55px;
 }
 
 .registration {
@@ -74,4 +75,11 @@
   width: 12px;
   height: 12px;
   animation: spin 2s linear infinite;
+}
+
+@media (max-width: 365px) {
+  .welcome {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
 }

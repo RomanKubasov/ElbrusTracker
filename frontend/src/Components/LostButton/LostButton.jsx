@@ -83,7 +83,7 @@ function LostButton() {
         {dataSocket.message && <div className={textStyle}>{dataSocket.message}</div>}
 
         {!dataSocket.students
-          ? (<div className={style.lostButton__describe}>Пока никто не присоединился...</div>)
+          ? (<div className={style.lostButton__describe}>Вы пока не присоединились...</div>)
           : (
             <div className={style.chart}>
               <Doughnut data={data} />

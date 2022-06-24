@@ -39,3 +39,9 @@
   border-bottom: 3px solid #8a2be2;
   color: #8a2be2;
 }
+
+@media (max-width: 365px) {
+  .menu__list {
+    /* margin-bottom: 90px; */
+  }
+}
