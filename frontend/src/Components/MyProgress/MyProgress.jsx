@@ -81,24 +81,27 @@ function MyProgress() {
       <div className={style.chart}>
         <Bar options={options} data={data} />
       </div>
-      <div>
-        Среднее время сна
-        {' '}
-        {messageArr[4] ? messageArr[4] : null}
-      </div>
-      <div>{messageArr[0] ? messageArr[0] : null}</div>
-      <div>
-        Ваш средний прогресс
-        {' '}
-        {messageArr[3] ? messageArr[3] : null}
-      </div>
-      <div>
-        Средний прогресс группы
-        {' '}
-        {messageArr[2] ? messageArr[2] : null}
-      </div>
-      <div>{messageArr[1] ? messageArr[1] : null}</div>
 
+      <div className={style.myProgress__date}>
+        <div className={style.myProgress__date__text}>
+          Среднее время сна:
+          {' '}
+          {messageArr[4] ? messageArr[4] : null}
+        </div>
+        <div className={style.myProgress__date__text}>{messageArr[0] ? messageArr[0] : null}</div>
+        <div className={style.myProgress__date__text}>
+          Ваш средний прогресс:
+          {' '}
+          {messageArr[3] ? messageArr[3] : null}
+        </div>
+        <div className={style.myProgress__date__text}>
+          Средний прогресс группы:
+          {' '}
+          {messageArr[2] ? messageArr[2] : null}
+        </div>
+        <div className={style.myProgress__date__text}>{messageArr[1] ? messageArr[1] : null}</div>
+
+      </div>
     </>
   );
 }
