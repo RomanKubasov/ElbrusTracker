@@ -65,4 +65,27 @@ li {
   margin: 20px;
   font-size: 20px;
   letter-spacing: 1.5px;
+
+.textfix {
+  width:fit-content;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.text {
+  animation: fade 5s ease forwards;
+  width:fit-content;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
