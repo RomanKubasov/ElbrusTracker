@@ -18,7 +18,7 @@ import Randomizer from './Components/Randomizer/Randomizer';
 import SignInGit from './Components/SignIn/SignInGit';
 import Menu from './Components/Menu/Menu';
 import AuthRouter from './Components/AuthRouter/AuthRouter';
-// import AuthTeacherRouter from './Components/AuthTeacherRouter/AuthTeacherRouter';
+import AuthTeacherRouter from './Components/AuthTeacherRouter/AuthTeacherRouter';
 import AuthStudentRouter from './Components/AuthStudentRouter/AuthStudentRouter';
 
 function App() {
@@ -40,7 +40,7 @@ function App() {
           <Route path="myfeedback" element={<AuthRouter><AuthStudentRouter><MyFeedBack /></AuthStudentRouter></AuthRouter>} />
           <Route path="feedback" element={<AuthRouter><AuthStudentRouter><FeedBack /></AuthStudentRouter></AuthRouter>} />
           <Route path="lostbutton" element={<LostButton />} />
-          <Route path="randomizer" element={<Randomizer />} />
+          <Route path="randomizer" element={<AuthTeacherRouter><Randomizer /></AuthTeacherRouter>} />
           <Route path="/" element={<MainPage />} />
           <Route path="*" element={<Page404 />} />
           <Route path="/login" element={<Navigate to="/" />} />
