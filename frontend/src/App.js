@@ -20,6 +20,7 @@ import Menu from './Components/Menu/Menu';
 import AuthRouter from './Components/AuthRouter/AuthRouter';
 import AuthTeacherRouter from './Components/AuthTeacherRouter/AuthTeacherRouter';
 import AuthStudentRouter from './Components/AuthStudentRouter/AuthStudentRouter';
+import StartPage from './Components/StartPage/StartPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -43,6 +44,7 @@ function App() {
           <Route path="randomizer" element={<AuthTeacherRouter><Randomizer /></AuthTeacherRouter>} />
           <Route path="/" element={<MainPage />} />
           <Route path="*" element={<Page404 />} />
+          <Route path="startpage" element={<StartPage />} />
           <Route path="/login" element={<Navigate to="/" />} />
           <Route path="/loginwithgithub" element={<SignInGit />} />
           <Route path="/loginwithpass" element={<SignIn />} />
