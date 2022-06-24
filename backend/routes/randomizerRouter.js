@@ -5,7 +5,8 @@ const { users, groups, students } = require('../db/models');
 
 router.route('/')
   .post(async (req, res) => {
-    const { group, count } = req.body;
+    // eslint-disable-next-line prefer-const
+    let { group, count } = req.body;
     let groupId = await groups.findOne({ where: { name: group } });
     groupId = JSON.parse(JSON.stringify(groupId));
     let studentsOfGroup = await students.findAll({ where: { group_id: groupId.id } });
@@ -16,6 +17,7 @@ router.route('/')
     studentNames = studentNames
       .map((el) => ({ id: el.id, name: el.name }))
       .filter((el) => studentsOfGroup.indexOf(el.id) !== (-1));
+    if (count > studentNames.length) { count = studentNames.length; }
     const teamCount = Math.floor(studentNames.length / count);
     const teamsArr = [];
     for (let i = 0; i < teamCount; i += 1) {
