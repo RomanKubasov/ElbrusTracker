@@ -1,0 +1,27 @@
+.users__block {
+  width: 400px;
+  height: auto;
+  margin: 50px auto 20px;
+  text-align: center;
+  padding: 10px 15px;
+  overflow: scroll;
+  background-color: #dcf1f74a;
+  border-radius: 10px;
+  line-height: 2;
+}
+
+.users {
+  margin: 10px;
+  font-size: 22px;
+  color: #780cd6;
+  cursor: pointer;
+  transition: all .3s linear;
+}
+
+.users:hover {
+  text-decoration: underline;
+}
+
+.users__score {
+  text-align: center;
+}

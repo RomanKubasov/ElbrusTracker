@@ -1,0 +1,92 @@
+.chart {
+  width: 400px;
+  margin: 30px auto;
+}
+
+.button__likes {
+  display: block;
+  margin: 10px auto;
+  padding: 5px;
+  border: none;
+  background-color: transparent;
+  font-size: 40px;
+  color: #333;
+  cursor: pointer;
+  transition: color .3s ease-out;
+}
+
+.button__likes:hover {
+  color: #ffff00;
+}
+
+li {
+  list-style: none;
+}
+
+.lostButton__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.lostButton__lection,
+.lostButton__fell {
+  font-size: 20px;
+  color: #ffff0095;
+  padding: 10px 50px;
+  border-radius: 5px;
+  border: 2px dashed transparent;
+  cursor: pointer;
+  transition: all .3s linear;
+}
+
+.lostButton__lection {
+  background-color: #07c51176;
+}
+
+.lostButton__lection:hover {
+  border: 2px dashed #fff;
+  color: #ffff00;
+  background-color: #07c511;
+}
+
+.lostButton__fell {
+  background-color: #ef232386;
+}
+
+.lostButton__fell:hover {
+  border: 2px dashed #fff;
+  color: #ffff00;
+  background-color: #ef2323;
+}
+
+.lostButton__describe {
+  text-align: center;
+  margin: 20px;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+}
+
+.textfix {
+  width:fit-content;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.text {
+  animation: fade 5s ease forwards;
+  width:fit-content;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

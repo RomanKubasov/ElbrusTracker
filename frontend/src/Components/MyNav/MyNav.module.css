@@ -2,11 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 10px 20px;
   background-image: url('https://images.unsplash.com/photo-1634893661513-d6d1f579fc63?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80');
   background-repeat: no-repeat;
   background-size: cover;
-  border-bottom: 1px solid #e5e5e5;
 }
 
 .header__logo {
@@ -14,8 +13,8 @@
 }
 
 .header__logo img {
-  display: block;
-  width: 110px;
+  display: inline-block;
+  width: 23%;
   cursor: pointer;
 }
 
@@ -29,7 +28,6 @@
   color: #ad9f9f;
   background-color: #4285b56f;
   padding: 7px 18px;
-  margin-right: 15px;
   border-radius: 5px 10px;
   border: 1px solid transparent;
   cursor: pointer;
@@ -41,4 +39,39 @@
   color: #eeb663;
   background-color: #18547f71;
   border: 1px solid #eeb663;
+}
+
+.photo {
+  display: block;
+  width: 60px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.welcome {
+  display: flex;
+  color: white;
+  align-items: center;
+}
+
+.welcometext {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loadercontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;          
+  height: 40px;
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  animation: spin 2s linear infinite;
 }

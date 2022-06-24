@@ -1,0 +1,204 @@
+.progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px auto;
+}
+
+.progress__title {
+  text-transform: uppercase;
+  color: #083962;
+  margin-top: 0;
+  letter-spacing: .8em;
+  margin-bottom: 30px;
+}
+
+.mood,
+.sleep,
+.resultOfDay {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.mood {
+  margin-bottom: 0;
+}
+
+.mood__title,
+.sleep__title,
+.resultOfDay__title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.mood__emojis,
+.sleep__block {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 30px auto;
+}
+
+.mood__emojis button {
+  border: none;
+  background-color: transparent;
+}
+
+.mouth,
+.sad,
+.neutral,
+.smile,
+.mouth_pen {
+  font-size: 60px;
+  color: #555;
+  cursor: pointer;
+  transition: color .3s ease-out;
+}
+
+.mouth.yellow,
+.sad.yellow,
+.neutral.yellow,
+.smile.yellow,
+.mouth_pen.yellow {
+  color: rgb(255, 255, .5);
+}
+
+.sleep__control_container,
+.resultOfDay__control_container {
+  position: relative;
+  margin: 30px auto;
+}
+
+.sleep__control_container__initialValue,
+.sleep__control_container__finallyValue,
+.resultOfDay__control_container__initialValue,
+.resultOfDay__control_container__finallyValue {
+  position: absolute;
+  border-radius: 5px;
+  background-color: #249186;
+  color: #ff0;
+  padding: 10px;
+  top: -30px;
+}
+
+.sleep__control_container__initialValue,
+.resultOfDay__control_container__initialValue {
+  left: -35px;
+  padding: 10px 15px;
+}
+
+/* Input - range Controller */
+.range {
+  width: 350px;
+  margin: 0 10px;
+}
+
+.range__resultOfDay {
+  width: 400px;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  background: rgba(59,173,227,1);
+  background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+  height: 3px;
+  background: -webkit-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+  background: -o-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 13px solid;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  max-width: 80px;
+  position: relative;
+  bottom: 10px;
+  background-color: #1d1c25;
+  cursor: grab;
+  transition: border 1000ms ease;
+}
+
+input[type=range]::-moz-range-thumb {
+  -moz-appearance: none;
+  border: 13px solid;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  max-width: 80px;
+  position: relative;
+  bottom: 10px;
+  background-color: #1d1c25;
+  cursor: -moz-grab;
+  transition: border 1000ms ease;
+}
+
+.range.blue::-webkit-slider-thumb {
+   border-color: rgb(59,173,227);
+}
+
+.range.ltpurple::-webkit-slider-thumb {
+   border-color: rgb(87,111,230);
+}
+
+.range.purple::-webkit-slider-thumb {
+   border-color: rgb(152,68,183);
+}
+
+.range.pink::-webkit-slider-thumb {
+   border-color: rgb(255,53,127);
+}
+
+.range.blue::-moz-range-thumb {
+   border-color: rgb(59,173,227);
+}
+
+.range.ltpurple::-moz-range-thumb {
+   border-color: rgb(87,111,230);
+}
+
+.range.purple::-moz-range-thumb {
+   border-color: rgb(152,68,183);
+}
+
+.range.pink::-moz-range-thumb {
+   border-color: rgb(255,53,127);
+}
+
+input[type=range]::-webkit-slider-thumb:active {
+  cursor: -webkit-grabbing;
+  transform: scale(1.4);
+}
+
+input[type=range]::-moz-range-thumb:active {
+  cursor: -moz-grabbing;
+  transform: scale(1.4);
+}
+/* End: input - range Controller */
+
+.progress__button {
+  font-size: 20px;
+  color: #e6c1c1;
+  background-color: #4285b5;
+  padding: 12px 24px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all .3s linear;
+}
+
+.progress__button:hover {
+  color: #eeb663;
+  background-color: #18547f71;
+  border: 1px solid #eeb663;
+}

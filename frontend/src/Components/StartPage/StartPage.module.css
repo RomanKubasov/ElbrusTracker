@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  width: 100vw;
+  height: 80vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.messagebox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 40vh;
+  width: 20vw;
+  background-color: rgb(69, 26, 170);
+  padding: 5px;
+}
+
+.title {
+  font-size: 6vh;
+  color:rgb(8, 187, 187);
+  text-align: center;  
+}
+
+.subtitle {
+  font-size: 4vh;
+  color:rgb(38, 177, 182);
+  text-align: center;  
+}
+
+.imagebox {
+  font-size: 100px;
+  height: 40vh;
+  background-color: white;
+}

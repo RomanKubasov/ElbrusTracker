@@ -1,0 +1,107 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Фидбек */
+.myFeedBack__container {
+  padding: 20px;
+}
+
+.myFeedBack__total,
+.myFeedBack__totalPeople {
+  text-transform: uppercase;
+  border-radius: 5px;
+  margin: 10px auto;
+  padding: 5px;
+  width: 800px;
+}
+
+.myFeedBack__totalPeople {
+  margin-bottom: 40px;
+}
+
+.myFeedBack__totalInner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.myFeedBack__totalInner b {
+  background-color: aqua;
+  padding: 5px 10px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  text-align: center;
+}
+
+.myFeedBack__total span,
+.myFeedBack__totalPeople span {
+  font: 700 1.3em/1 "Oswald", sans-serif;
+  letter-spacing: 1px;
+  padding: .25em 0 .325em;
+  display: block;
+  margin-right: 30px;
+  border-bottom: 1px solid #000;
+}
+
+/* Описание */
+.myFeedBack__block,
+.myFeedBack__block2,
+.myFeedBack__block3 {
+  padding: 10px;
+  --angle: 0deg;
+  height: auto;
+  border: 6px solid;
+  border-image: linear-gradient(var(--angle), red, yellow, lime, aqua, blue, orange) 1;
+  animation: 10s rotate linear infinite;
+  margin-bottom: 50px;
+  border-top: none;
+  border-bottom: none;
+}
+
+.myFeedBack__block2 {
+  border-image: linear-gradient(var(--angle), aqua, orange, red, lime, blue, yellow) 1;
+}
+
+.myFeedBack__block3 {
+  border-image: linear-gradient(var(--angle), #00ffff, #00ff00, #eaea28, #8a2be2) 1;
+}
+
+.myFeedBack__title {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px;
+  text-decoration: underline;
+}
+
+.myFeedBack__description {
+  margin-left: 30px;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.MyFeedBack__describe {
+  font-size: 22px;
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+
+@keyframes rotate {
+	to {
+		--angle: 360deg;
+	}
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}

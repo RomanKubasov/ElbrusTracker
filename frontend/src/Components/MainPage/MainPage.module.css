@@ -1,3 +1,62 @@
-.MainPage {
-  margin: 20px;
+.mainPage {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 30px -15px 0;
+  flex-wrap: wrap;
+  height: 50vh;
+}
+
+.mainPage__card_progress,
+.mainPage__card_feedback {
+  width: 25%;
+  padding: 0 15px;
+}
+
+.mainPage__card_progress_inner,
+.mainPage__card_feedback_inner {
+  position: relative;
+  transition: all .3s linear;
+}
+
+.mainPage__card_progress_inner:hover .mainPage__card_progress_img,
+.mainPage__card_feedback_inner:hover .mainPage__card_feedback_img {
+  transform: translate3D(-10px, -10px, 0);
+  cursor: pointer;
+}
+
+.mainPage__card_progress_inner:hover .mainPage__card_progress_img,
+.mainPage__card_feedback_inner:hover .mainPage__card_feedback_img {
+  opacity: .8;
+}
+
+.mainPage__card_progress_img,
+.mainPage__card_feedback_img {
+  transition: all .3s linear;
+  text-align: center;
+}
+
+.mainPage__card_progress_img img,
+.mainPage__card_feedback_img img {
+  display: inline-block;
+  max-width: 100%;
+  width: 150px;
+  height: auto;
+  transition: all .1s linear;
+}
+
+.mainPage__card_progress_info,
+.mainPage__card_feedback_info {
+  text-align: center;
+  line-height: 30px;
+  border-bottom: 1px dotted #666;
+}
+
+.mainPage__card_progress_info p,
+.mainPage__card_feedback_info p {
+  text-transform: uppercase;
+  color: #333;
+  margin: 5px;
+  font-size: 24px;
+  font-weight: 600;
 }
