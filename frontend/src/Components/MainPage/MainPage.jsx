@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { setIsLoading } from '../../Redux/actions/isLoadingAction';
 import style from './MainPage.module.css';
 import Spinner from '../Spinner/Spinner';
+import StartPage from '../StartPage/StartPage';
 
 function MainPage() {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ function MainPage() {
 
   return (
     <>
+      {!isLoading.status && !user.login && (<StartPage />)}
       {isLoading.status && !user.login && (<Spinner />)}
       <div className={style.mainPage}>
         {(user.role_id === 2) && (
