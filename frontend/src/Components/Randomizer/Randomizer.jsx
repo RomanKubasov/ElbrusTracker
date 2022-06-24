@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 function Randomizer() {
   const { user } = useSelector((state) => state);
   const [randomizeNumber, setRandomizeNumber] = useState(0);
-
+  const [randomizerMessage, setRandomizerMessage] = useState(false);
   const [randomizeGroupName, setRandomizeGroupName] = useState('');
   let userCheck = false;
 
@@ -33,36 +33,42 @@ function Randomizer() {
     if (!isNaN(randomizeNumber)
       && parseInt(Number(randomizeNumber), 10) == randomizeNumber
       && !isNaN(parseInt(randomizeNumber, 10)) && randomizeNumber > 1) {
+      setRandomizerMessage(false);
       const response = await axios.post(
         `${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/randomizer`,
         { group: randomizeGroupName, count: randomizeNumber },
       );
       console.log(response.data);
+      setRandomizerMessage(true);
     } else {
       alert('Неверно задано число человек в команде');
     }
   }
 
   return (
-    <>
-      <div>Randomizer (you can generate random teams of students here)</div>
-      <div>Укажите группу</div>
-      <select onChange={selectHandler}>
-        {randomizeGroupName
-          ? user.userTeachers.map((el, index) => (
-            <option
-              value={el.name}
-              key={index}
-            >
-              {el.name}
-            </option>
-          ))
-          : null}
-      </select>
-      <div>Введите количество человек в одной команде</div>
-      <input onChange={inputHandler} />
-      <button type="button" onClick={submitHandler}>Generate</button>
-    </>
+    (user.userTeachers)
+      ? (
+        <>
+          <div>Рандомизатор (здесь вы можете создавать случайные команды студентов)</div>
+          <div>Укажите группу</div>
+          <select onChange={selectHandler}>
+            {randomizeGroupName
+              ? user.userTeachers.map((el, index) => (
+                <option
+                  value={el.name}
+                  key={index}
+                >
+                  {el.name}
+                </option>
+              ))
+              : null}
+          </select>
+          <div>Введите количество человек в одной команде</div>
+          <input onChange={inputHandler} />
+          <button type="button" onClick={submitHandler}>Generate</button>
+          {randomizerMessage ? <div>Команды сформированы и отправлены в Slack!</div> : null}
+        </>
+      ) : <div>Авторизуйтесь, чтобы получить доступ</div>
 
   );
 }

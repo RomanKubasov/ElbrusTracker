@@ -25,6 +25,11 @@ function Menu() {
             </li>
           </>
           )}
+          {(user.role_id === 1) && (
+          <li className={style.menu__item}>
+            <Link to="/randomizer" className={style.menu__link}>Randomizer</Link>
+          </li>
+          )}
           <li className={style.menu__item}>
             <Link to="/lostbutton" className={style.menu__link}>Lost button</Link>
           </li>
