@@ -1,48 +1,64 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setIsLoading } from '../../Redux/actions/isLoadingAction';
 import style from './MainPage.module.css';
-import imgProgress from '../../images/progress_img.jpg';
-import imgFeedback from '../../images/feedback.jpg';
-import imgTeacherMonitor from '../../images/teacher_monitor.jpg';
+import Spinner from '../Spinner/Spinner';
 
 function MainPage() {
+  const dispatch = useDispatch();
+  const { isLoading, user } = useSelector((state) => state);
+
+  useEffect(() => {
+    dispatch(setIsLoading({ ...isLoading, status: true }));
+    setTimeout(() => dispatch(setIsLoading({ ...isLoading, status: false })), 2000);
+  }, []);
+
   return (
-    <div className={style.mainPage}>
-
-      <div className={style.mainPage__card_progress}>
-        <Link to="/progress" className={style.mainPage__card_progress_inner}>
-          <div className={style.mainPage__card_progress_img}>
-            <img src={imgProgress} alt="Progress_Image" />
+    <>
+      {isLoading.status && !user.login && (<Spinner />)}
+      <div className={style.mainPage}>
+        {(user.role_id === 2) && (
+        <>
+          <div className={style.mainPage__card_progress}>
+            <Link to="/progress" className={style.mainPage__card_progress_inner}>
+              <div className={style.mainPage__card_progress_img}>
+                <img src="images/progress.svg" alt="Progress_Image" />
+              </div>
+            </Link>
+            <div className={style.mainPage__card_progress_info}>
+              <p>Мой прогресс</p>
+            </div>
           </div>
-        </Link>
-        <div className={style.mainPage__card_progress_info}>
-          <p>Мой прогресс</p>
-        </div>
-      </div>
 
-      <div className={style.mainPage__card_feedback}>
-        <Link to="/feedback" className={style.mainPage__card_feedback_inner}>
-          <div className={style.mainPage__card_feedback_img}>
-            <img src={imgFeedback} alt="Feedback_Image" />
+          <div className={style.mainPage__card_feedback}>
+            <Link to="/feedback" className={style.mainPage__card_feedback_inner}>
+              <div className={style.mainPage__card_feedback_img}>
+                <img src="images/rating2.svg" alt="Feedback_Image" />
+              </div>
+            </Link>
+            <div className={style.mainPage__card_feedback_info}>
+              <p>Обратная связь</p>
+            </div>
           </div>
-        </Link>
-        <div className={style.mainPage__card_feedback_info}>
-          <p>Обратная связь</p>
-        </div>
-      </div>
+        </>
+        )}
 
-      <div className={style.mainPage__card_feedback}>
-        <Link to="/lostbutton" className={style.mainPage__card_feedback_inner}>
-          <div className={style.mainPage__card_feedback_img}>
-            <img src={imgTeacherMonitor} alt="Feedback_Image" />
+        {(user.role_id) && (
+        <div className={style.mainPage__card_feedback}>
+          <Link to="/lostbutton" className={style.mainPage__card_feedback_inner}>
+            <div className={style.mainPage__card_feedback_img}>
+              <img src="images/lection.svg" alt="Feedback_Image" />
+            </div>
+          </Link>
+          <div className={style.mainPage__card_feedback_info}>
+            <p>Я на лекции</p>
           </div>
-        </Link>
-        <div className={style.mainPage__card_feedback_info}>
-          <p>Я на лекции</p>
         </div>
-      </div>
+        )}
 
-    </div>
+      </div>
+    </>
   );
 }
 

@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import {
+  Routes, Route, Navigate,
+} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { checkUser } from './Redux/actions/userAction';
 import MainPage from './Components/MainPage/MainPage';
@@ -14,12 +16,14 @@ import MyProgress from './Components/MyProgress/MyProgress';
 import LostButton from './Components/LostButton/LostButton';
 import Randomizer from './Components/Randomizer/Randomizer';
 import SignInGit from './Components/SignIn/SignInGit';
-// import AuthRouter from './Components/AuthRouter/AuthRouter';
+import Menu from './Components/Menu/Menu';
+import AuthRouter from './Components/AuthRouter/AuthRouter';
 // import AuthTeacherRouter from './Components/AuthTeacherRouter/AuthTeacherRouter';
-// import AuthStudentRouter from './Components/AuthStudentRouter/AuthStudentRouter';
+import AuthStudentRouter from './Components/AuthStudentRouter/AuthStudentRouter';
 
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(checkUser());
   }, []);
@@ -27,13 +31,14 @@ function App() {
   return (
     <div className="App">
       <MyNav />
+      <Menu />
 
       <div className="main">
         <Routes>
-          <Route path="progress" element={<ProgressPage />} />
-          <Route path="myprogress" element={<MyProgress />} />
-          <Route path="myfeedback" element={<MyFeedBack />} />
-          <Route path="feedback" element={<FeedBack />} />
+          <Route path="progress" element={<AuthRouter><AuthStudentRouter><ProgressPage /></AuthStudentRouter></AuthRouter>} />
+          <Route path="myprogress" element={<AuthRouter><AuthStudentRouter><MyProgress /></AuthStudentRouter></AuthRouter>} />
+          <Route path="myfeedback" element={<AuthRouter><AuthStudentRouter><MyFeedBack /></AuthStudentRouter></AuthRouter>} />
+          <Route path="feedback" element={<AuthRouter><AuthStudentRouter><FeedBack /></AuthStudentRouter></AuthRouter>} />
           <Route path="lostbutton" element={<LostButton />} />
           <Route path="randomizer" element={<Randomizer />} />
           <Route path="/" element={<MainPage />} />

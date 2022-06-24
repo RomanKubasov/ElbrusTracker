@@ -8,6 +8,8 @@ import feedbackReducer from './reducers/feedbackReducer';
 import myFeedbackReducer from './reducers/myFeedbackReducer';
 import userReducer from './reducers/userReducer';
 import dataSocketReducer from './reducers/dataSocketReducer';
+import feedbackMessageReducer from './reducers/feedbackMessageReducer';
+import isLoadingReducer from './reducers/isLoadingReducer';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -20,6 +22,11 @@ export const store = configureStore({
     myFeedback: myFeedbackReducer,
     user: userReducer,
     dataSocket: dataSocketReducer,
+
+    feedbackMessage: feedbackMessageReducer,
+
+    isLoading: isLoadingReducer,
+
   },
   middleware: (mid) => [...mid(), sagaMiddleware],
 });
