@@ -1,5 +1,5 @@
 import {
-  GET_TEAMMATES,
+  GET_TEAMMATES, REQUEST_TEAMMATES,
 } from '../types/types';
 
 export const getTeamMates = (value) => ({
@@ -7,14 +7,7 @@ export const getTeamMates = (value) => ({
   value,
 });
 
-export const getTeamMatesRequest = (id) => async (dispatch) => {
-  const res = await fetch(`${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/teammates`, {
-    method: 'post',
-    headers: {
-      'Content-Type': 'application/json;charset=utf-8',
-    },
-    body: JSON.stringify({ id }),
-  });
-  const data = await res.json();
-  dispatch(getTeamMates(JSON.parse(JSON.stringify(data))));
-};
+export const requestTeamMates = (value) => ({
+  type: REQUEST_TEAMMATES,
+  value,
+});

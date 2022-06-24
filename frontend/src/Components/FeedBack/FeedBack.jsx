@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getTeamMatesRequest } from '../../Redux/actions/teamMatesAction';
+import { requestTeamMates } from '../../Redux/actions/teamMatesAction';
 import { setFeedBackToUserId } from '../../Redux/actions/feedbackToAction';
 import FeedBackForm from './FeedBackForm';
 import style from './FeedBack.module.css';
@@ -15,7 +15,7 @@ function FeedBack() {
 
   useEffect(() => {
     if (!teamMates.length) {
-      dispatch(getTeamMatesRequest(id));
+      dispatch(requestTeamMates(id));
     }
   }, [id]);
 
