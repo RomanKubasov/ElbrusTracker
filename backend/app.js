@@ -29,6 +29,7 @@ const PORT = 3001;
 const sessionParser = session({
   store: new FileStore(),
   key: 'sid',
+  proxy: true,
   secret: 'helloworld',
   resave: false,
   saveUninitialized: false,
