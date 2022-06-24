@@ -46,27 +46,29 @@ function Randomizer() {
   }
 
   return (
-    <>
-      <div>Рандомизатор (здесь вы можете создавать случайные команды студентов)</div>
-      <div>Укажите группу</div>
-      <select onChange={selectHandler}>
-        {randomizeGroupName
-          ? user.userTeachers.map((el, index) => (
-            <option
-              value={el.name}
-              key={index}
-            >
-              {el.name}
-            </option>
-          ))
-          : null}
-      </select>
-      <div>Введите количество человек в одной команде</div>
-      <input onChange={inputHandler} />
-      <button type="button" onClick={submitHandler}>Generate</button>
-      {randomizerMessage ? <div>Команды сформированы и отправлены в Slack!</div> : null}
-
-    </>
+    (user.userTeachers)
+      ? (
+        <>
+          <div>Рандомизатор (здесь вы можете создавать случайные команды студентов)</div>
+          <div>Укажите группу</div>
+          <select onChange={selectHandler}>
+            {randomizeGroupName
+              ? user.userTeachers.map((el, index) => (
+                <option
+                  value={el.name}
+                  key={index}
+                >
+                  {el.name}
+                </option>
+              ))
+              : null}
+          </select>
+          <div>Введите количество человек в одной команде</div>
+          <input onChange={inputHandler} />
+          <button type="button" onClick={submitHandler}>Generate</button>
+          {randomizerMessage ? <div>Команды сформированы и отправлены в Slack!</div> : null}
+        </>
+      ) : <div>Авторизуйтесь, чтобы получить доступ</div>
 
   );
 }

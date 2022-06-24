@@ -597,13 +597,13 @@ module.exports = {
     ];
     const progresses = [
       {
-        date: new Date(2022, 6, 13), user_id: 22, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
-        date: new Date(2022, 6, 14), user_id: 22, createdAt: new Date(), updatedAt: new Date(),
-      },
-      {
         date: new Date(2022, 6, 15), user_id: 22, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        date: new Date(2022, 6, 16), user_id: 22, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        date: new Date(2022, 6, 17), user_id: 22, createdAt: new Date(), updatedAt: new Date(),
       },
     ];
     const progress_items = [
