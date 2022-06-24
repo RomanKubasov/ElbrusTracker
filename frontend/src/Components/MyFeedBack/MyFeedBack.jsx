@@ -63,7 +63,7 @@ function MyFeedBack() {
         {type1metricExists
           ? (
             myFeedback.allFeedbacks.filter((el) => el.type_id === 1)
-              .map((el) => (<div key={el.id}>{`${el.metric} - ${el.value}`}</div>))
+              .map((el) => (<div className={style.MyFeedBack__describe} key={el.id}>{`${el.metric} - ${el.value}`}</div>))
           )
           : (
             <span className={style.myFeedBack__description}>
@@ -77,7 +77,7 @@ function MyFeedBack() {
         {type2metricExists
           ? (
             myFeedback.allFeedbacks.filter((el) => el.type_id === 2)
-              .map((el) => (<div key={el.id}>{`${el.metric} - ${el.value}`}</div>))
+              .map((el) => (<div className={style.MyFeedBack__describe} key={el.id}>{`${el.metric} - ${el.value}`}</div>))
           )
           : (
             <span className={style.myFeedBack__description}>
@@ -93,7 +93,7 @@ function MyFeedBack() {
           ? (
             <div key={myFeedback.allFeedbacks.filter((el) => el.type_id === 3)[0].id}>
               {myFeedback.allFeedbacks.filter((el) => el.type_id === 3)[0].value
-                .map((el) => (<li>{el}</li>))}
+                .map((el) => (<li className={style.MyFeedBack__describe}>{el}</li>))}
             </div>
           )
           : (

@@ -76,11 +76,13 @@ function LostButton() {
 
         <div>{dataSocket.message}</div>
 
-        {!dataSocket.students ? (<div>Пока никто не присоединился</div>) : (
-          <div className={style.chart}>
-            <Doughnut data={data} />
-          </div>
-        )}
+        {!dataSocket.students
+          ? (<div className={style.lostButton__describe}>Пока никто не присоединился...</div>)
+          : (
+            <div className={style.chart}>
+              <Doughnut data={data} />
+            </div>
+          )}
 
         <button
           className={style.button__likes}

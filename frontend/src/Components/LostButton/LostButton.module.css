@@ -59,3 +59,10 @@ li {
   color: #ffff00;
   background-color: #ef2323;
 }
+
+.lostButton__describe {
+  text-align: center;
+  margin: 20px;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+}

@@ -12,26 +12,26 @@ function Menu() {
           {(user.role_id === 2) && (
           <>
             <li className={style.menu__item}>
-              <Link to="/progress" className={style.menu__link}>Progress</Link>
+              <Link to="/progress" className={style.menu__link}>Прогресс</Link>
             </li>
             <li className={style.menu__item}>
-              <Link to="/myprogress" className={style.menu__link}>My progress</Link>
+              <Link to="/myprogress" className={style.menu__link}>Мой прогресс</Link>
             </li>
             <li className={style.menu__item}>
-              <Link to="/feedback" className={style.menu__link}>Feedback</Link>
+              <Link to="/feedback" className={style.menu__link}>Фидбек</Link>
             </li>
             <li className={style.menu__item}>
-              <Link to="/myfeedback" className={style.menu__link}>My feedback</Link>
+              <Link to="/myfeedback" className={style.menu__link}>Мой фидбек</Link>
             </li>
           </>
           )}
           {(user.role_id === 1) && (
           <li className={style.menu__item}>
-            <Link to="/randomizer" className={style.menu__link}>Randomizer</Link>
+            <Link to="/randomizer" className={style.menu__link}>Рандомайзер</Link>
           </li>
           )}
           <li className={style.menu__item}>
-            <Link to="/lostbutton" className={style.menu__link}>Lost button</Link>
+            <Link to="/lostbutton" className={style.menu__link}>Я на лекции</Link>
           </li>
         </ul>
       )}
