@@ -605,6 +605,36 @@ module.exports = {
       {
         date: new Date(2022, 6, 17), user_id: 22, createdAt: new Date(), updatedAt: new Date(),
       },
+      {
+        date: new Date(2022, 6, 17), user_id: 13, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        date: new Date(2022, 6, 17), user_id: 13, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        date: new Date(2022, 6, 17), user_id: 13, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        date: new Date(2022, 6, 17), user_id: 13, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        date: new Date(2022, 6, 17), user_id: 13, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        date: new Date(2022, 6, 17), user_id: 13, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        date: new Date(2022, 6, 17), user_id: 13, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        date: new Date(2022, 6, 17), user_id: 13, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        date: new Date(2022, 6, 17), user_id: 13, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        date: new Date(2022, 6, 17), user_id: 13, createdAt: new Date(), updatedAt: new Date(),
+      },
     ];
     const progress_items = [
       {
@@ -634,6 +664,97 @@ module.exports = {
       {
         progress_id: 3, indicator_id: 3, value: 0, createdAt: new Date(), updatedAt: new Date(),
       },
+      {
+        progress_id: 4, indicator_id: 2, value: 5, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 4, indicator_id: 1, value: 7, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 4, indicator_id: 3, value: 8, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 5, indicator_id: 2, value: 2.5, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 5, indicator_id: 1, value: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 5, indicator_id: 3, value: 8, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 6, indicator_id: 2, value: 0, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 6, indicator_id: 1, value: 10, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 6, indicator_id: 3, value: 0, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 7, indicator_id: 2, value: 5, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 7, indicator_id: 1, value: 5, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 7, indicator_id: 3, value: 5, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 8, indicator_id: 2, value: 10, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 8, indicator_id: 1, value: 10, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 8, indicator_id: 3, value: 10, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 9, indicator_id: 2, value: 2.5, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 9, indicator_id: 1, value: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 9, indicator_id: 3, value: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 10, indicator_id: 2, value: 10, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 10, indicator_id: 1, value: 7, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 10, indicator_id: 3, value: 4, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 11, indicator_id: 2, value: 2.5, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 11, indicator_id: 1, value: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 11, indicator_id: 3, value: 8, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 12, indicator_id: 2, value: 5, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 12, indicator_id: 1, value: 10, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 12, indicator_id: 3, value: 6, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 13, indicator_id: 2, value: 7.5, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 13, indicator_id: 1, value: 10, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        progress_id: 13, indicator_id: 3, value: 1, createdAt: new Date(), updatedAt: new Date(),
+      },
+
     ];
     await queryInterface.bulkInsert('roles', roles);
     await queryInterface.bulkInsert('feedback_metrics_types', feedback_metrics_types);

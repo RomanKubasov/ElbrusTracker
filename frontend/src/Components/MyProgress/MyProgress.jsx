@@ -26,11 +26,15 @@ function MyProgress() {
   const { user } = useSelector((state) => state);
   const { id } = user;
   const [dataProgress, setDataProgress] = useState([{ mood: 0, sleep: 0, performance: 0 }]);
+  const [messageArr, setMessagesArr] = useState([]);
 
   useEffect(() => {
     try {
       if (user.id) {
-        axios.post(`${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/myprogress`, { id }).then((res) => setDataProgress(res.data));
+        axios.post(`${process.env.REACT_APP_PROXY_URL}:${process.env.REACT_APP_SERVER_PORT}/myprogress`, { id }).then((res) => {
+          setDataProgress(res.data[0]);
+          setMessagesArr([res.data[1], res.data[2], res.data[3], res.data[4], res.data[5]]);
+        });
       }
     } catch (error) {
       console.log(error);
@@ -73,9 +77,29 @@ function MyProgress() {
     ],
   };
   return (
-    <div className={style.chart}>
-      <Bar options={options} data={data} />
-    </div>
+    <>
+      <div className={style.chart}>
+        <Bar options={options} data={data} />
+      </div>
+      <div>
+        Среднее время сна
+        {' '}
+        {messageArr[4] ? messageArr[4] : null}
+      </div>
+      <div>{messageArr[0] ? messageArr[0] : null}</div>
+      <div>
+        Ваш средний прогресс
+        {' '}
+        {messageArr[3] ? messageArr[3] : null}
+      </div>
+      <div>
+        Средний прогресс группы
+        {' '}
+        {messageArr[2] ? messageArr[2] : null}
+      </div>
+      <div>{messageArr[1] ? messageArr[1] : null}</div>
+
+    </>
   );
 }
 
