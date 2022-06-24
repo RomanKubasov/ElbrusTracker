@@ -13,7 +13,6 @@ import feedbackMessageReducer from './reducers/feedbackMessageReducer';
 
 import isLoadingReducer from './reducers/isLoadingReducer';
 
-
 const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
