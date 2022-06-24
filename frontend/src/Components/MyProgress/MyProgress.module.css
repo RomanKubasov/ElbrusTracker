@@ -5,3 +5,17 @@
   margin: 30px auto;
   padding: 10px 20px;
 }
+
+.myProgress__date {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  line-height: 2;
+}
+
+.myProgress__date__text {
+  font-size: 18px;
+  font-weight: 800;
+  border-bottom: 1px solid #000;
+}
