@@ -1,5 +1,6 @@
 # ElbrusTracker
 Application to measure students progress and share feedback.
+https://elbrustracker.herokuapp.com/
 
 1) Login with GitHub (integration);
 
