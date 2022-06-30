@@ -4,7 +4,9 @@ https://elbrustracker.herokuapp.com/
 
 ```
 Stack of Technologies:
-JavaScript, CSS, HTML, SQL, React, Redux + Saga, Chart.js, node.js, Express, Sequelize, WebSockets, PostgreSQL,
+JavaScript, CSS, HTML, SQL,
+React, Redux + Saga, Chart.js,
+node.js, Express, Sequelize, WebSockets, PostgreSQL.
 ```
 
 <details><summary>1) Login with GitHub (integration)</summary>
