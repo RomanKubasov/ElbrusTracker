@@ -2,6 +2,11 @@
 Application to measure students progress and share feedback.</p>
 https://elbrustracker.herokuapp.com/
 
+```
+Stack of Technologies:
+JavaScript, CSS, HTML, SQL, React, Redux + Saga, Chart.js, node.js, Express, Sequelize, WebSockets, PostgreSQL,
+```
+
 <details><summary>1) Login with GitHub (integration)</summary>
 <p>
   
@@ -47,11 +52,3 @@ for teachers and students:
   
 </p>
 </details>
-
-
-
-Stack of Technologies:
-
-Frontend: React, Redux + Saga
-
-Backend: node.js, PostgreSQL
